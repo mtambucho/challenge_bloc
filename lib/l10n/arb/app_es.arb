@@ -1,0 +1,72 @@
+{
+    "@@locale": "es",
+    "counterAppBarTitle": "Contador",
+    "@counterAppBarTitle": {
+        "description": "Texto mostrado en la AppBar de la página del contador"
+    },
+    "appName": "Challenge",
+    "notImplementedYet": "No implementado aún",
+    "home": "Recetas",
+    "excercise": "Excercise",
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miercoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sabado",
+    "weekMenu": "Menu Semanal",
+    "settings": "Settings",
+    "startupPage": "Pagina de inicio",
+    "challenge": "Reto",
+    "firstDay": "Primer día del reto",
+    "recipes": "Recetas",
+    "preparation": "Preparación",
+    "ingredients": "Ingredientes",
+    "breakfast": "Desayuno",
+    "morningSnack": "Colación",
+    "lunch": "Almuerzo",
+    "snack": "Merienda",
+    "dinner": "Cena",
+    "cart": "Carrito",
+    "purchaseList": "Lista de la compra",
+    "shoppingList": "Lista de compras",
+    "fasting": "Ayuno",
+    "portions": "Porciones {portions}",
+    "@portions": {
+        "description": "Cantidad de porciones de una receta",
+        "placeholders": {
+            "portions": {
+                "type": "int",
+                "example": "1"
+            }
+        }
+    },
+    "typeForWeek": "{type} de la Semana {week}",
+    "@typeForWeek": {
+        "description": "Tipo de comida para la semana",
+        "placeholders": {
+            "type": {
+                "type": "String",
+                "example": "Almuerzo"
+            },
+            "week": {
+                "type": "int",
+                "example": "1"
+            }
+        }
+    },
+    "cantOfUnit": "{count} {unit} de",
+    "@cantOfUnit": {
+        "description": "Cantidad de unidad de un ingrediente",
+        "placeholders": {
+            "count": {
+                "type": "double",
+                "example": "1.5"
+            },
+            "unit": {
+                "type": "String",
+                "example": "g"
+            }
+        }
+    }
+}

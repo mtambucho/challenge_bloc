@@ -1,0 +1,26 @@
+[
+    {
+        "nombre": "Té verde con mix de frutos secos",
+        "descripcion": "Té verde con limón + almendras, castañas y pasas de uva.",
+        "receta": [
+            "Té verde con limón + Mix de frutos secos: 10 almendras, 10 castañas de cajú, 2 cdas de pasas de uva."
+        ],
+        "ingredientes": [
+            {
+                "cant": 10,
+                "unit": "",
+                "description": "almendras"
+            },
+            {
+                "cant": 10,
+                "unit": "",
+                "description": "castañas de cajú"
+            },
+            {
+                "cant": 2,
+                "unit": "cdas",
+                "description": "pasas de uva"
+            }
+        ]
+    }
+]

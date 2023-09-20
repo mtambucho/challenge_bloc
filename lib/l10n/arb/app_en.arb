@@ -1,0 +1,72 @@
+{
+    "@@locale": "en",
+    "counterAppBarTitle": "Counter",
+    "@counterAppBarTitle": {
+        "description": "Text displayed in the AppBar of the counter page"
+    },
+    "appName": "Challenge",
+    "notImplementedYet": "Not implemented yet",
+    "home": "Recipes",
+    "excercise": "Exercise",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "weekMenu": "Weekly Menu",
+    "settings": "Settings",
+    "startupPage": "Startup page",
+    "challenge": "Challenge",
+    "firstDay": "First day of the challenge",
+    "recipes": "Recipes",
+    "preparation": "Preparation",
+    "ingredients": "Ingredients",
+    "breakfast": "Breakfast",
+    "morningSnack": "Morning Snack",
+    "lunch": "Lunch",
+    "snack": "Snack",
+    "dinner": "Dinner",
+    "cart": "Cart",
+    "purchaseList": "Purchase List",
+    "shoppingList": "Shopping List",
+    "fasting": "Fasting",
+    "portions": "Portions {portions}",
+    "@portions": {
+        "description": "Number of portions of a recipe",
+        "placeholders": {
+            "portions": {
+                "type": "int",
+                "example": "1"
+            }
+        }
+    },
+    "typeForWeek": "{type} of Week {week}",
+    "@typeForWeek": {
+        "description": "Type of meal for the week",
+        "placeholders": {
+            "type": {
+                "type": "String",
+                "example": "Lunch"
+            },
+            "week": {
+                "type": "int",
+                "example": "1"
+            }
+        }
+    },
+    "cantOfUnit": "{count} {unit} of",
+    "@cantOfUnit": {
+        "description": "Quantity of a unit of an ingredient",
+        "placeholders": {
+            "count": {
+                "type": "double",
+                "example": "1.5"
+            },
+            "unit": {
+                "type": "String",
+                "example": "g"
+            }
+        }
+    }
+}
