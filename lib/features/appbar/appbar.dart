@@ -1,5 +1,5 @@
 import 'package:challenge_bloc/common/utils/constants/colors.dart';
-import 'package:challenge_bloc/common/widgets/fav_widget.dart';
+import 'package:challenge_bloc/features/fav/presentation/fav_star_widget.dart';
 import 'package:flutter/material.dart';
 
 ///create a custom app bar to reuse in the hole application
@@ -55,7 +55,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             : null,
         actions: [
           ...?actions,
-          if (showFav) const FavWidget(),
+          if (showFav) const FavStarWidget(),
           // const CartWidget(),
         ],
         leading: leading,

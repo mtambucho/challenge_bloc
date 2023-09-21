@@ -1,4 +1,5 @@
 import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/features/fav/presentation/fav_widget.dart';
 import 'package:challenge_bloc/features/home/home.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:flutter/material.dart';
@@ -89,9 +90,9 @@ class _Buttons extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        // FavRecipeWidget(
-        //   recipe: receta,
-        // ),
+        FavRecipeWidget(
+          recipe: receta,
+        ),
         IconButton(
           icon: Icon(
             inCart ? Icons.shopping_cart : Icons.shopping_cart_outlined,
