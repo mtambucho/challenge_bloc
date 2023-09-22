@@ -33,9 +33,9 @@ class HomeView extends StatelessWidget {
         onDestinationSelected: (index) =>
             context.read<HomeCubit>().goToPage(index),
       ),
-      body: FlowBuilder<HomeStatus>(
+      body: FlowBuilder<HomeState>(
         onGeneratePages: onGenerateNavBarPages,
-        state: context.select((HomeCubit cubit) => cubit.state.status),
+        state: context.select((HomeCubit cubit) => cubit.state),
       ),
     );
   }

@@ -1,15 +1,23 @@
 import 'package:challenge_bloc/features/challenge/challenge.dart';
 import 'package:challenge_bloc/features/home/home.dart';
+import 'package:challenge_bloc/features/recipe_details/recipe_details.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:challenge_bloc/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 
 List<Page<dynamic>> onGenerateNavBarPages(
-  HomeStatus state,
+  HomeState state,
   List<Page<dynamic>> pages,
 ) {
-  return switch (state) {
-    HomeStatus.recipes => [RecipesPage.page()],
+  return switch (state.status) {
+    HomeStatus.recipes => [
+        RecipesPage.page(),
+        if (state.showDetails)
+          RecipeDetailsPage.page(
+            state.selectedRecipe!,
+            state.selectedMealType!,
+          ),
+      ],
     // HomeStatus.excercise => [ExcercisePage.page()],
     // HomeStatus.fasting => [FastingPage.page()],
     HomeStatus.settings => [SettingPage.page()],

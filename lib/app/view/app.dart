@@ -60,7 +60,7 @@ class App extends StatelessWidget {
   RepositoryProvider<RecipesRepository> _configureRecipesRepository() =>
       RepositoryProvider<RecipesRepository>(
         create: (context) => RecipesRepositoryImpl(
-          dataSource: RecipesDataSourceImpl(),
+          dataSource: RecipesDataSource(),
         ),
       );
 

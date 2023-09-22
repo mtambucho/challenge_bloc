@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppCard extends StatelessWidget {
-  const AppCard({super.key, required this.child, this.color});
+  const AppCard({required this.child, super.key, this.color});
   final Widget child;
   final Color? color;
 

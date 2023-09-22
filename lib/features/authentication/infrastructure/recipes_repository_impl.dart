@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:challenge_bloc/features/authentication/authentication.dart';
-import 'package:challenge_bloc/features/authentication/domain/recipes_repository.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 
 class RecipesRepositoryImpl implements RecipesRepository {

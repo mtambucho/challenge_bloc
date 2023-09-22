@@ -1,9 +1,11 @@
 import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/appbar/appbar.dart';
+import 'package:challenge_bloc/features/home/home.dart';
 import 'package:challenge_bloc/features/recipes/application/recipes_cubit.dart';
 import 'package:challenge_bloc/features/recipes/application/recipes_state.dart';
 import 'package:challenge_bloc/features/recipes/presentation/widgets/recipes_list.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
+import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,7 +36,14 @@ class RecipesView extends StatelessWidget {
                 child: Builder(
                   builder: (context) {
                     return state.value.when(
-                      (data) => RecipesList(data, state.mealType, (recipe) {}),
+                      (data) => RecipesList(data, state.mealType, (recipe) {
+                        context.flow<HomeState>().update(
+                              (homeState) => homeState.copyWith(
+                                selectedRecipe: recipe,
+                                selectedMealType: state.mealType,
+                              ),
+                            );
+                      }),
                       loading: () =>
                           const Center(child: CircularProgressIndicator()),
                       error: (error) => Text(error.toString()),

@@ -2,23 +2,30 @@ part of 'home_cubit.dart';
 
 class HomeState extends Equatable {
   const HomeState({
+    this.selectedRecipe,
+    this.selectedMealType,
     this.status = HomeStatus.recipes,
-    this.itemsInCart = 0,
   });
 
   final HomeStatus status;
-  final int itemsInCart;
+  final Recipe? selectedRecipe;
+  final MealType? selectedMealType;
 
   @override
-  List<Object> get props => [status, itemsInCart];
+  List<Object> get props =>
+      [status, selectedRecipe ?? '', selectedMealType ?? ''];
+
+  bool get showDetails => selectedRecipe != null && selectedMealType != null;
 
   HomeState copyWith({
     HomeStatus? status,
-    int? itemsInCart,
+    Recipe? selectedRecipe,
+    MealType? selectedMealType,
   }) {
     return HomeState(
       status: status ?? this.status,
-      itemsInCart: itemsInCart ?? this.itemsInCart,
+      selectedRecipe: selectedRecipe ?? this.selectedRecipe,
+      selectedMealType: selectedMealType ?? this.selectedMealType,
     );
   }
 }

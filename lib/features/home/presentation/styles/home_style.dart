@@ -17,4 +17,3 @@ class HomeStyle {
         fontWeight: FontWeight.bold,
       );
 }
-// 

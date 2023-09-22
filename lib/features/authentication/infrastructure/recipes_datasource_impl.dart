@@ -5,9 +5,8 @@ import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:flutter/services.dart';
 
-class RecipesDataSourceImpl implements RecipesDataSource {
+class RecipesDataSource {
   ///function to get all recipes from jsons
-  @override
   Future<List<Recipe>> getRecipes(RecipesParams params) async {
     try {
       final recipes = List<Recipe>.empty(growable: true);

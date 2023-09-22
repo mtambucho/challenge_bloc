@@ -55,12 +55,12 @@
             }
         }
     },
-    "cantOfUnit": "{count} {unit} de",
+    "cantOfUnit": "{count} {unit} de ",
     "@cantOfUnit": {
         "description": "Cantidad de unidad de un ingrediente",
         "placeholders": {
             "count": {
-                "type": "double",
+                "type": "String",
                 "example": "1.5"
             },
             "unit": {

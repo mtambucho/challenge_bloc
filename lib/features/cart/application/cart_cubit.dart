@@ -17,8 +17,6 @@ class CartCubit extends Cubit<CartState> {
     ///check if the item recipe exist in the cart increment the count
     if (state.items.any((element) => element.recipe.name == recipe.name)) {
       ///remove from state
-      // state =
-      //     state.where((element) => element.recipe.name != recipe.name).toList();
       items = state.items
           .where((element) => element.recipe.name != recipe.name)
           .toList();
