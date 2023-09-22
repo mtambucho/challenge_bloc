@@ -1,22 +1,24 @@
 import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/features/cart/cart.dart';
 import 'package:challenge_bloc/features/fav/presentation/fav_widget.dart';
 import 'package:challenge_bloc/features/home/home.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 ///create another ItemWidge
 ///create another ItemWidget but receive a receta and show all the information
 ///in a blue card with rounded borders
 class RecipesItem extends StatelessWidget {
   const RecipesItem({
-    required this.receta,
+    required this.recipe,
     required this.onTap,
     required this.color,
     required this.inCart,
     super.key,
   });
 
-  final Recipe receta;
+  final Recipe recipe;
   final VoidCallback onTap;
   final Color color;
   final bool inCart;
@@ -31,9 +33,9 @@ class RecipesItem extends StatelessWidget {
           child: Row(
             children: [
               _Buttons(
-                receta: receta,
+                receta: recipe,
                 onTap: () {
-                  // ref.read(cartProvider.notifier).addOrRemoveItem(receta);
+                  context.read<CartCubit>().addOrRemoveItem(recipe);
                 },
                 color: color,
                 inCart: inCart,
@@ -45,14 +47,14 @@ class RecipesItem extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(8),
                       child: Text(
-                        receta.name.toUpperCase(),
+                        recipe.name.toUpperCase(),
                         style: HomeStyle.itemTitle,
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8),
                       child: Text(
-                        receta.description,
+                        recipe.description,
                         style: HomeStyle.item,
                       ),
                     ),

@@ -13,8 +13,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   }
 
   void checkAuthentication() {
-    Future.delayed(const Duration(seconds: 2), () {
-      emit(AuthenticationState.unauthenticated);
+    Future.delayed(const Duration(seconds: 1), () {
+      emit(AuthenticationState.authenticated);
     });
   }
 }
