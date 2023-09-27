@@ -9,11 +9,13 @@ part of 'recipes_params.dart';
 _$_RecipesParams _$$_RecipesParamsFromJson(Map<String, dynamic> json) =>
     _$_RecipesParams(
       type: $enumDecode(_$MealTypeEnumMap, json['type']),
+      locale: json['locale'] as String,
     );
 
 Map<String, dynamic> _$$_RecipesParamsToJson(_$_RecipesParams instance) =>
     <String, dynamic>{
       'type': _$MealTypeEnumMap[instance.type]!,
+      'locale': instance.locale,
     };
 
 const _$MealTypeEnumMap = {

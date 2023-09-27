@@ -8,6 +8,7 @@ part 'recipes_params.g.dart';
 class RecipesParams with _$RecipesParams {
   const factory RecipesParams({
     required MealType type,
+    required String locale,
   }) = _RecipesParams;
 
   factory RecipesParams.fromJson(Map<String, dynamic> json) =>

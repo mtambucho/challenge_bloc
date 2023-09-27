@@ -31,6 +31,7 @@
     "purchaseList": "Purchase List",
     "shoppingList": "Shopping List",
     "fasting": "Fasting",
+    "noRecipes": "No recipes to show",
     "portions": "Portions {portions}",
     "@portions": {
         "description": "Number of portions of a recipe",

@@ -1,3 +1,4 @@
+import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
 import 'package:challenge_bloc/features/fav/fav.dart';
 import 'package:challenge_bloc/features/recipes/presentation/widgets/recipes_item.dart';
@@ -5,6 +6,7 @@ import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class RecipesList extends StatelessWidget {
   const RecipesList(this.recipes, this.type, this.onSelected, {super.key});
@@ -39,6 +41,27 @@ class RecipesList extends StatelessWidget {
 
         return BlocBuilder<CartCubit, CartState>(
           builder: (context, cartState) {
+            if (recipesToShow.isEmpty) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      AppImages.noMealsToShow,
+                      height: 100,
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    Text(
+                      context.l10n.noRecipes,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                  ],
+                ),
+              );
+            }
+
             return ListView.builder(
               itemCount: recipesToShow.length,
               itemBuilder: (context, index) {

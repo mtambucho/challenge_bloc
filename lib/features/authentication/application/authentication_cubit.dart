@@ -1,5 +1,6 @@
 import 'package:challenge_bloc/features/authentication/application/authentication_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationState.loading);
@@ -13,8 +14,10 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
   }
 
   void checkAuthentication() {
-    Future.delayed(const Duration(seconds: 1), () {
-      emit(AuthenticationState.authenticated);
-    });
+    emit(AuthenticationState.authenticated);
+    Future.delayed(
+      const Duration(milliseconds: 100),
+      FlutterNativeSplash.remove,
+    );
   }
 }

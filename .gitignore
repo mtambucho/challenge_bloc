@@ -127,3 +127,6 @@ app.*.map.json
 
 # Environment configuration
 assets/.env
+
+# Database related
+*.sql

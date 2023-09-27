@@ -1,20 +1,52 @@
 import 'dart:developer';
 
+import 'package:challenge_bloc/common/database/supabase/models/supabase_recipe_ingredient.dart';
+import 'package:challenge_bloc/common/database/supabase_database_client.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 
 class RecipesRepositoryImpl implements RecipesRepository {
-  RecipesRepositoryImpl({required this.dataSource});
+  RecipesRepositoryImpl({
+    required this.dataSource,
+    required this.databaseClient,
+  });
   final RecipesDataSource dataSource;
+  final SupabaseDatabaseRecipes databaseClient;
 
   ///function to get all recipes from jsons
   @override
   Future<List<Recipe>> getRecipes(RecipesParams params) async {
     try {
-      return dataSource.getRecipes(params);
+      final supabaseRecipes = await databaseClient.getRecipes(params);
+      final list =
+          supabaseRecipes.map((r) => r.toRecipe(params.locale)).toList();
+      return list;
     } catch (e) {
       log('==>>$e');
       return [];
     }
+  }
+}
+
+extension on SupabaseRecipe {
+  Recipe toRecipe(String locale) {
+    return Recipe(
+      description: description[locale] ?? '',
+      ingredients:
+          ingredients?.map((e) => e.toIngredient(locale)).toList() ?? [],
+      receta: recipe[locale],
+      name: name[locale] ?? '',
+      rendimiento: quantity,
+    );
+  }
+}
+
+extension on SupabaseRecipeIngredient {
+  Ingredient toIngredient(String locale) {
+    return Ingredient(
+      name: ingredient.name[locale] ?? '',
+      quantity: count?.toDouble() ?? 0.0,
+      unit: unit.name[locale],
+    );
   }
 }

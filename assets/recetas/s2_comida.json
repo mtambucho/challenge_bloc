@@ -115,10 +115,10 @@
         ]
     },
     {
-        "nombre": "Tacos de lechuga",
+        "nombre": "Tacos",
         "descripcion": "Tacos de pollo, porotos, cebolla, morrón y palta.",
         "receta": [
-            "Tacos de 3 hojas de lechuga rellenos de: 150g de pechuga de pollo (peso crudo) a la plancha, 85g de porotos negros (peso cocido), 1⁄2 cebolla de verdeo, 1⁄2 morrón, 1 cta de aceite de oliva, cúrcuma, comino + Topping de 1⁄4 de palta en cubos."
+            "Tacos rellenos de: 150g de pechuga de pollo (peso crudo) a la plancha, 85g de porotos negros (peso cocido), 1⁄2 cebolla de verdeo, 1⁄2 morrón, 1 cta de aceite de oliva, cúrcuma, comino + Topping de 1⁄4 de palta en cubos."
         ],
         "ingredientes": [
             {
@@ -160,6 +160,11 @@
                 "cant": 0.25,
                 "unit": "",
                 "description": "palta"
+            },
+            {
+                "cant": 1,
+                "unit": "unidad",
+                "description": "tortilla"
             }
         ]
     },

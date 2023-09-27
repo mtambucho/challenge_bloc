@@ -3,6 +3,7 @@ import 'package:challenge_bloc/features/appbar/appbar.dart';
 import 'package:challenge_bloc/features/home/home.dart';
 import 'package:challenge_bloc/features/recipes/application/recipes_cubit.dart';
 import 'package:challenge_bloc/features/recipes/application/recipes_state.dart';
+import 'package:challenge_bloc/features/recipes/presentation/widgets/recipe_item_loading.dart';
 import 'package:challenge_bloc/features/recipes/presentation/widgets/recipes_list.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:flow_builder/flow_builder.dart';
@@ -16,7 +17,6 @@ class RecipesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<RecipesCubit>().getRecipes();
     return BlocBuilder<RecipesCubit, RecipesState>(
       builder: (context, state) {
         return Scaffold(
@@ -44,8 +44,12 @@ class RecipesView extends StatelessWidget {
                               ),
                             );
                       }),
-                      loading: () =>
-                          const Center(child: CircularProgressIndicator()),
+                      loading: () => ListView(
+                        children: List.generate(
+                          6,
+                          (index) => const RecipeItemLoading(),
+                        ),
+                      ),
                       error: (error) => Text(error.toString()),
                     );
                   },

@@ -44,10 +44,10 @@ enum MealType {
 
   String toRawValue() {
     return switch (this) {
-      breakfast => 'desayuno',
-      morningSnack => 'colacion',
-      snack => 'merienda',
-      lunch || dinner => 'comida'
+      breakfast => 'breakfast',
+      morningSnack => 'morning_snack',
+      snack => 'breakfast',
+      lunch || dinner => 'meal'
     };
   }
 

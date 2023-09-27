@@ -31,6 +31,7 @@
     "purchaseList": "Lista de la compra",
     "shoppingList": "Lista de compras",
     "fasting": "Ayuno",
+    "noRecipes": "No hay recetas para mostrar",
     "portions": "Porciones {portions}",
     "@portions": {
         "description": "Cantidad de porciones de una receta",

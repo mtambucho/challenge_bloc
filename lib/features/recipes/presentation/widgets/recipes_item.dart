@@ -1,5 +1,7 @@
 import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
+import 'package:challenge_bloc/features/fav/application/fav_cubit.dart';
+import 'package:challenge_bloc/features/fav/application/fav_state.dart';
 import 'package:challenge_bloc/features/fav/presentation/fav_widget.dart';
 import 'package:challenge_bloc/features/home/home.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
@@ -33,7 +35,7 @@ class RecipesItem extends StatelessWidget {
           child: Row(
             children: [
               _Buttons(
-                receta: recipe,
+                recipe: recipe,
                 onTap: () {
                   context.read<CartCubit>().addOrRemoveItem(recipe);
                 },
@@ -76,24 +78,37 @@ class RecipesItem extends StatelessWidget {
 
 class _Buttons extends StatelessWidget {
   const _Buttons({
-    required this.receta,
+    required this.recipe,
     required this.onTap,
     required this.color,
     required this.inCart,
   });
 
-  final Recipe receta;
+  final Recipe recipe;
   final VoidCallback onTap;
   final Color color;
   final bool inCart;
 
   @override
   Widget build(BuildContext context) {
+    final controller = context.read<FavCubit>();
+    final isFavorite = controller.isFavorite(recipe);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        FavRecipeWidget(
-          recipe: receta,
+        BlocBuilder<FavCubit, FavState>(
+          builder: (context, state) {
+            return FavRecipeWidget(
+              isFavorite: isFavorite,
+              onPressed: () {
+                if (isFavorite) {
+                  controller.removeFavorite(recipe);
+                } else {
+                  controller.addFavorite(recipe);
+                }
+              },
+            );
+          },
         ),
         IconButton(
           icon: Icon(
