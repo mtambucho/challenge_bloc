@@ -61,8 +61,8 @@ class App extends StatelessWidget {
     log('localeStr==>>>$localeStr');
 
     if (localeStr.length >= 2) {
-      //todo return Locale(localeStr.substring(0, 2));
-      return const Locale('es');
+      return Locale(localeStr.substring(0, 2));
+      // return const Locale('es');
     } else {
       return const Locale('en');
     }
