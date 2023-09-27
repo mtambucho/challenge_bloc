@@ -12,13 +12,14 @@ class RecipesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final repository = context.read<RecipesRepository>();
-    final localization = context.read<LocalizationCubit>();
     final mealType = calculateMealType();
 
     return BlocProvider(
-      create: (_) =>
-          RecipesCubit(repository, localization.state.locale, mealType),
+      create: (_) => RecipesCubit(
+        context.read<RecipesRepository>(),
+        context.read<LocalizationCubit>().state.locale,
+        mealType,
+      )..getRecipes(),
       child: const RecipesView(),
     );
   }

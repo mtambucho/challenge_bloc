@@ -21,6 +21,7 @@ class MealsBubbles extends StatelessWidget {
       children: List.generate(
         MealType.values.length,
         (index) => _Item(
+          index: index,
           size: width / MealType.values.length,
           image: MealType.values[index].imageURL(),
           text: MealType.values[index].toStringValue(l10n),
@@ -36,12 +37,14 @@ class MealsBubbles extends StatelessWidget {
 
 class _Item extends StatelessWidget {
   const _Item({
+    required this.index,
     required this.image,
     required this.text,
     required this.onTap,
     required this.size,
     required this.isSelected,
   });
+  final int index;
   final String image;
   final String text;
   final bool isSelected;
@@ -53,6 +56,7 @@ class _Item extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: SizedBox(
+        key: Key('mealTypeBubble_$index'),
         width: size,
         child: Padding(
           padding: const EdgeInsets.all(4),

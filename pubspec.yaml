@@ -46,7 +46,6 @@ flutter:
     - assets/
     - assets/recetas/
     - assets/images/
-    - assets/.env
 
   # Fonts
   fonts:

@@ -15,9 +15,7 @@ class RecipesCubit extends Cubit<RecipesState> {
             value: const RecipeValue.loading(),
             mealType: mealType,
           ),
-        ) {
-    getRecipes();
-  }
+        );
   final RecipesRepository _recipesRepository;
   final Locale locale;
 
