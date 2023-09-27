@@ -57,7 +57,7 @@ class App extends StatelessWidget {
   }
 
   Locale getLocale() {
-    final localeStr = Intl.getCurrentLocale().substring(0, 2);
+    final localeStr = Intl.getCurrentLocale();
     log('localeStr==>>>$localeStr');
 
     if (localeStr.length >= 2) {
