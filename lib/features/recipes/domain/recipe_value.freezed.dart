@@ -14,21 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RecipeValue _$RecipeValueFromJson(Map<String, dynamic> json) {
-  switch (json['runtimeType']) {
-    case 'default':
-      return Data.fromJson(json);
-    case 'loading':
-      return Loading.fromJson(json);
-    case 'error':
-      return ErrorDetails.fromJson(json);
-
-    default:
-      throw CheckedFromJsonException(json, 'runtimeType', 'RecipeValue',
-          'Invalid union type "${json['runtimeType']}"!');
-  }
-}
-
 /// @nodoc
 mixin _$RecipeValue {
   @optionalTypeArgs
@@ -75,7 +60,6 @@ mixin _$RecipeValue {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -125,13 +109,9 @@ class __$$DataCopyWithImpl<$Res> extends _$RecipeValueCopyWithImpl<$Res, _$Data>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$Data implements Data {
-  const _$Data(final List<Recipe> data, {final String? $type})
-      : _data = data,
-        $type = $type ?? 'default';
 
-  factory _$Data.fromJson(Map<String, dynamic> json) => _$$DataFromJson(json);
+class _$Data implements Data {
+  const _$Data(final List<Recipe> data) : _data = data;
 
   final List<Recipe> _data;
   @override
@@ -140,9 +120,6 @@ class _$Data implements Data {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_data);
   }
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
 
   @override
   String toString() {
@@ -157,7 +134,6 @@ class _$Data implements Data {
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
@@ -235,19 +211,10 @@ class _$Data implements Data {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$DataToJson(
-      this,
-    );
-  }
 }
 
 abstract class Data implements RecipeValue {
   const factory Data(final List<Recipe> data) = _$Data;
-
-  factory Data.fromJson(Map<String, dynamic> json) = _$Data.fromJson;
 
   List<Recipe> get data;
   @JsonKey(ignore: true)
@@ -269,15 +236,9 @@ class __$$LoadingCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$Loading implements Loading {
-  const _$Loading({final String? $type}) : $type = $type ?? 'loading';
-
-  factory _$Loading.fromJson(Map<String, dynamic> json) =>
-      _$$LoadingFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  const _$Loading();
 
   @override
   String toString() {
@@ -290,7 +251,6 @@ class _$Loading implements Loading {
         (other.runtimeType == runtimeType && other is _$Loading);
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -361,19 +321,10 @@ class _$Loading implements Loading {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LoadingToJson(
-      this,
-    );
-  }
 }
 
 abstract class Loading implements RecipeValue {
   const factory Loading() = _$Loading;
-
-  factory Loading.fromJson(Map<String, dynamic> json) = _$Loading.fromJson;
 }
 
 /// @nodoc
@@ -408,19 +359,12 @@ class __$$ErrorDetailsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$ErrorDetails implements ErrorDetails {
-  const _$ErrorDetails([this.message, final String? $type])
-      : $type = $type ?? 'error';
 
-  factory _$ErrorDetails.fromJson(Map<String, dynamic> json) =>
-      _$$ErrorDetailsFromJson(json);
+class _$ErrorDetails implements ErrorDetails {
+  const _$ErrorDetails([this.message]);
 
   @override
   final String? message;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
 
   @override
   String toString() {
@@ -435,7 +379,6 @@ class _$ErrorDetails implements ErrorDetails {
             (identical(other.message, message) || other.message == message));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
@@ -512,20 +455,10 @@ class _$ErrorDetails implements ErrorDetails {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ErrorDetailsToJson(
-      this,
-    );
-  }
 }
 
 abstract class ErrorDetails implements RecipeValue {
   const factory ErrorDetails([final String? message]) = _$ErrorDetails;
-
-  factory ErrorDetails.fromJson(Map<String, dynamic> json) =
-      _$ErrorDetails.fromJson;
 
   String? get message;
   @JsonKey(ignore: true)

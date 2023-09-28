@@ -1,4 +1,4 @@
-import 'package:challenge_bloc/features/recipes/domain/recipe.dart';
+import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:flutter/material.dart';
 
 ///create a cart item widget when the name adn the count of the recipe is shown

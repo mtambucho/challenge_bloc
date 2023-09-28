@@ -1,5 +1,6 @@
 // import 'package:flutter/material.dart';
 
+import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/fav/fav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,8 +16,11 @@ class FavStarWidget extends StatelessWidget {
           key: const Key('favStarButton'),
           onPressed: () => context.read<FavCubit>().toggleFav(),
           icon: state.showFavorites
-              ? const Icon(Icons.star)
-              : const Icon(Icons.star_border),
+              ? const Icon(
+                  Icons.star,
+                  color: AppColors.golden,
+                )
+              : const Icon(Icons.star_border, color: AppColors.black),
         );
       },
     );

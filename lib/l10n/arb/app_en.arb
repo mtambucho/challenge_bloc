@@ -32,6 +32,7 @@
     "shoppingList": "Shopping List",
     "fasting": "Fasting",
     "noRecipes": "No recipes to show",
+    "cartEmpty": "The cart is empty",
     "portions": "Portions {portions}",
     "@portions": {
         "description": "Number of portions of a recipe",

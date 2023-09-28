@@ -9,22 +9,8 @@ class AppTheme {
     visualDensity: VisualDensity.adaptivePlatformDensity,
     dividerColor: AppColors.grey,
     scaffoldBackgroundColor: AppColors.scaffold,
-    // navigationBarTheme: const NavigationBarThemeData(
-    //   backgroundColor: Colors.white,
-    //   elevation: 4,
-    //   iconTheme: MaterialStateProperty.resolveWith<IconThemeData>(
-    //       (state) => const IconThemeData()),
-    // ),
     navigationBarTheme: NavigationBarThemeData(
       height: 45,
-      iconTheme: MaterialStateProperty.resolveWith<IconThemeData>(
-        (state) => const IconThemeData(
-          opticalSize: 10,
-          color: Colors.red,
-          fill: 0.99,
-          size: 20,
-        ),
-      ),
       indicatorColor: Colors.transparent,
       labelTextStyle: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.selected)) {

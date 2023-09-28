@@ -1,3 +1,4 @@
+export '../services/cart_service.dart';
 export 'constants/colors.dart';
 export 'constants/images.dart';
 export 'constants/theme.dart';

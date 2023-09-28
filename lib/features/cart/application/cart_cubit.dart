@@ -24,11 +24,16 @@ class CartCubit extends Cubit<CartState> {
 
     ///create a new item
     else {
-      items = [...state.items, CartItem(recipe: recipe)];
+      items = [
+        ...state.items,
+        CartItem(
+          recipe: recipe,
+        ),
+      ];
     }
 
     ///save in storage
-    repository.saveCartList(state.items);
+    repository.saveCartList(items);
 
     ///update state
     emit(CartState(items: items));

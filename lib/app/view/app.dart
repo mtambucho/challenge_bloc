@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:challenge_bloc/common/utils/service/local_store_manager.dart';
+import 'package:challenge_bloc/common/services/recipe_service.dart';
 import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
@@ -15,12 +15,14 @@ import 'package:intl/intl.dart';
 
 class App extends StatelessWidget {
   const App({
-    required this.localStorageManager,
     required this.recipesRepository,
+    required this.cartService,
+    required this.recipeService,
     super.key,
   });
-  final LocalStorageManager localStorageManager;
   final RecipesRepository recipesRepository;
+  final CartService cartService;
+  final RecipeService recipeService;
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
@@ -29,29 +31,24 @@ class App extends StatelessWidget {
         _configureFavRepository(),
         _configureCartRepository(),
       ],
-      child: Builder(
-        builder: (context) {
-          return MultiBlocProvider(
-            providers: [
-              _configureFavCubit(),
-              _configureCartCubit(),
-              _configureLocalizationCubit(),
-            ],
-            child: Builder(
-              builder: (context) {
-                return MaterialApp(
-                  debugShowCheckedModeBanner: false,
-                  theme: AppTheme.appThemeData,
-                  localizationsDelegates:
-                      AppLocalizations.localizationsDelegates,
-                  supportedLocales: AppLocalizations.supportedLocales,
-                  home: const AuthenticationFlow(),
-                  locale: context.read<LocalizationCubit>().state.locale,
-                );
-              },
-            ),
-          );
-        },
+      child: MultiBlocProvider(
+        providers: [
+          _configureFavCubit(),
+          _configureCartCubit(),
+          _configureLocalizationCubit(),
+        ],
+        child: BlocBuilder<LocalizationCubit, LocalizationState>(
+          builder: (context, state) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: AppTheme.appThemeData,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              supportedLocales: AppLocalizations.supportedLocales,
+              home: const AuthenticationFlow(),
+              locale: state.locale,
+            );
+          },
+        ),
       ),
     );
   }
@@ -96,13 +93,15 @@ class App extends StatelessWidget {
 
   RepositoryProvider<FavRepository> _configureFavRepository() =>
       RepositoryProvider<FavRepository>(
-        create: (_) =>
-            FavRepositoryImpl(localStorageManager: localStorageManager),
+        create: (_) => FavRepositoryImpl(
+          recipeService,
+        ),
       );
 
   RepositoryProvider<CartRepository> _configureCartRepository() =>
       RepositoryProvider<CartRepository>(
-        create: (_) =>
-            CartRepositoryImpl(localStorageManager: localStorageManager),
+        create: (_) => CartRepositoryImpl(
+          hiveStorageManager: cartService,
+        ),
       );
 }

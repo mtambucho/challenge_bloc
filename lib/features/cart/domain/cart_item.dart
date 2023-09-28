@@ -1,16 +1,14 @@
-import 'package:challenge_bloc/features/recipes/domain/recipe.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:challenge_bloc/features/recipes/recipes.dart';
+import 'package:hive/hive.dart';
 
-part 'cart_item.freezed.dart';
 part 'cart_item.g.dart';
 
-@freezed
-class CartItem with _$CartItem {
-  factory CartItem({
-    required Recipe recipe,
-    @Default(1) int count,
-  }) = _CartItem;
+@HiveType(typeId: 1)
+class CartItem extends HiveObject {
+  CartItem({required this.recipe, this.count = 1});
 
-  factory CartItem.fromJson(Map<String, dynamic> json) =>
-      _$CartItemFromJson(json);
+  @HiveField(0)
+  final Recipe recipe;
+  @HiveField(1)
+  final int count;
 }

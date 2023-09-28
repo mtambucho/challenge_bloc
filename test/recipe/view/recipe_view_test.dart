@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:bloc_test/bloc_test.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
 import 'package:challenge_bloc/features/fav/application/fav_cubit.dart';
@@ -31,13 +29,13 @@ void main() {
   setUp(() async {
     cartCubit = MockCartCubit();
     when(() => cartCubit.state).thenReturn(
-      CartState(items: const []),
+      const CartState(items: []),
     );
 
     favCubit = MockFavCubit();
     when(() => favCubit.state).thenReturn(
-      FavState(
-        favorites: const [],
+      const FavState(
+        favorites: [],
       ),
     );
 
@@ -45,9 +43,10 @@ void main() {
     when(() => recipesCubit.state).thenReturn(
       RecipesState(
         mealType: MealType.breakfast,
-        value: RecipeValue.loading(),
-        recipes: const [
+        value: const RecipeValue.loading(),
+        recipes: [
           Recipe(
+            code: 'test',
             name: 'Test',
             description: 'Test',
             ingredients: [],
@@ -73,13 +72,13 @@ void main() {
               value: cartCubit,
             ),
           ],
-          child: RecipesView(),
+          child: const RecipesView(),
         ),
       );
       expect(recipesCubit.state.recipes?.length, 1);
-      expect(recipesCubit.state.value, RecipeValue.loading());
+      expect(recipesCubit.state.value, const RecipeValue.loading());
 
-      final button = find.byKey(Key('favStarButton'));
+      final button = find.byKey(const Key('favStarButton'));
       await tester.tap(button);
       verify(() => favCubit.toggleFav()).called(1);
     });

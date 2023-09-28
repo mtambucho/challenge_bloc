@@ -1,6 +1,7 @@
 import 'package:challenge_bloc/features/fav/application/fav_state.dart';
 import 'package:challenge_bloc/features/fav/domain/fav_repository.dart';
 import 'package:challenge_bloc/features/recipes/domain/recipe.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavCubit extends Cubit<FavState> {
@@ -20,7 +21,8 @@ class FavCubit extends Cubit<FavState> {
   }
 
   bool isFavorite(Recipe recipe) {
-    return state.favorites?.contains(recipe) ?? false;
+    return state.favorites?.firstWhereOrNull((x) => x.code == recipe.code) !=
+        null;
   }
 
   void addFavorite(Recipe recipe) {

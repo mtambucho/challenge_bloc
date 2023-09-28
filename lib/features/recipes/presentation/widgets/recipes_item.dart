@@ -28,48 +28,50 @@ class RecipesItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: ColoredBox(
-        color: Colors.transparent,
-        child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Row(
-            children: [
-              _Buttons(
-                recipe: recipe,
-                onTap: () {
-                  context.read<CartCubit>().addOrRemoveItem(recipe);
-                },
-                color: color,
-                inCart: inCart,
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Text(
-                        recipe.name.toUpperCase(),
-                        style: HomeStyle.itemTitle,
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          children: [
+            _Buttons(
+              recipe: recipe,
+              onTap: () {
+                context.read<CartCubit>().addOrRemoveItem(recipe);
+              },
+              color: color,
+              inCart: inCart,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Text(
+                      recipe.name.toUpperCase(),
+                      style: HomeStyle.itemTitle,
+                    ),
+                  ),
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(minHeight: 80),
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8),
+                        child: Text(
+                          recipe.description,
+                          style: HomeStyle.item,
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Text(
-                        recipe.description,
-                        style: HomeStyle.item,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              const Icon(
-                Icons.keyboard_arrow_right,
-                color: AppColors.grey,
-                size: 30,
-              ),
-            ],
-          ),
+            ),
+            const Icon(
+              Icons.keyboard_arrow_right,
+              color: AppColors.grey,
+              size: 30,
+            ),
+          ],
         ),
       ),
     );

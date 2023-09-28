@@ -1,25 +1,23 @@
-import 'package:challenge_bloc/common/utils/service/local_store_manager.dart';
+import 'package:challenge_bloc/common/services/recipe_service.dart';
 import 'package:challenge_bloc/features/fav/domain/fav_repository.dart';
 import 'package:challenge_bloc/features/recipes/domain/recipe.dart';
 
 class FavRepositoryImpl extends FavRepository {
-  FavRepositoryImpl({required LocalStorageManager localStorageManager})
-      : _localStorageManager = localStorageManager;
-
-  final LocalStorageManager _localStorageManager;
+  FavRepositoryImpl(this.recipeService);
+  final RecipeService recipeService;
 
   @override
   List<Recipe> getFavorites() {
-    return _localStorageManager.getFavorites();
+    return recipeService.getFavorites();
   }
 
   @override
   void saveFavorite(Recipe recipe) {
-    _localStorageManager.saveFavorite(recipe);
+    recipeService.saveFavorite(recipe);
   }
 
   @override
   void removeFavorite(Recipe recipe) {
-    _localStorageManager.removeFavorite(recipe);
+    recipeService.removeFavorite(recipe);
   }
 }

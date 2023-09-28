@@ -1,6 +1,6 @@
 import 'package:challenge_bloc/features/cart/domain/cart_item.dart';
 
 abstract class CartRepository {
-  void saveCartList(List<CartItem> item);
+  void saveCartList(List<CartItem> items);
   List<CartItem> getCartList();
 }

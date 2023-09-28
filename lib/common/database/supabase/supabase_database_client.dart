@@ -42,7 +42,6 @@ class SupabaseDatabaseRecipes {
             TableRecipe.mealType.value,
             params.type.toRawValue(),
           );
-      log('response==>>$response');
       final list = response.map(SupabaseRecipe.fromJson).toList();
 
       return list;

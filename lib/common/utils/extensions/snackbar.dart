@@ -6,6 +6,7 @@ extension ShowSnackBar on BuildContext {
     required String message,
     Color backgroundColor = AppColors.primaryColor,
   }) {
+    ScaffoldMessenger.of(this).clearSnackBars();
     ScaffoldMessenger.of(this).showSnackBar(
       SnackBar(
         content: Text(message),

@@ -3,38 +3,94 @@
 part of 'recipe.dart';
 
 // **************************************************************************
-// JsonSerializableGenerator
+// TypeAdapterGenerator
 // **************************************************************************
 
-_$_Recipe _$$_RecipeFromJson(Map<String, dynamic> json) => _$_Recipe(
-      name: json['nombre'] as String,
-      description: json['descripcion'] as String,
-      ingredients: (json['ingredientes'] as List<dynamic>)
-          .map((e) => Ingredient.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      rendimiento: json['rendimiento'] as int? ?? 1,
-      receta:
-          (json['receta'] as List<dynamic>?)?.map((e) => e as String).toList(),
-    );
+class RecipeAdapter extends TypeAdapter<Recipe> {
+  @override
+  final int typeId = 4;
 
-Map<String, dynamic> _$$_RecipeToJson(_$_Recipe instance) => <String, dynamic>{
-      'nombre': instance.name,
-      'descripcion': instance.description,
-      'ingredientes': instance.ingredients,
-      'rendimiento': instance.rendimiento,
-      'receta': instance.receta,
+  @override
+  Recipe read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-
-_$_Ingredient _$$_IngredientFromJson(Map<String, dynamic> json) =>
-    _$_Ingredient(
-      quantity: (json['cant'] as num?)?.toDouble() ?? 0.0,
-      unit: json['unit'] as String?,
-      name: json['description'] as String,
+    return Recipe(
+      code: fields[0] as String,
+      name: fields[1] as String,
+      description: fields[2] as String,
+      ingredients: (fields[3] as List).cast<Ingredient>(),
+      rendimiento: fields[4] as int,
+      receta: (fields[5] as List?)?.cast<String>(),
     );
+  }
 
-Map<String, dynamic> _$$_IngredientToJson(_$_Ingredient instance) =>
-    <String, dynamic>{
-      'cant': instance.quantity,
-      'unit': instance.unit,
-      'description': instance.name,
+  @override
+  void write(BinaryWriter writer, Recipe obj) {
+    writer
+      ..writeByte(6)
+      ..writeByte(0)
+      ..write(obj.code)
+      ..writeByte(1)
+      ..write(obj.name)
+      ..writeByte(2)
+      ..write(obj.description)
+      ..writeByte(3)
+      ..write(obj.ingredients)
+      ..writeByte(4)
+      ..write(obj.rendimiento)
+      ..writeByte(5)
+      ..write(obj.receta);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is RecipeAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class IngredientAdapter extends TypeAdapter<Ingredient> {
+  @override
+  final int typeId = 5;
+
+  @override
+  Ingredient read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
+    return Ingredient(
+      quantity: fields[0] as double,
+      unit: fields[1] as String?,
+      name: fields[2] as String,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, Ingredient obj) {
+    writer
+      ..writeByte(3)
+      ..writeByte(0)
+      ..write(obj.quantity)
+      ..writeByte(1)
+      ..write(obj.unit)
+      ..writeByte(2)
+      ..write(obj.name);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is IngredientAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}

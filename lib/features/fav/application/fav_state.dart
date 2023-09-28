@@ -1,4 +1,4 @@
-import 'package:challenge_bloc/features/recipes/domain/recipe.dart';
+import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:equatable/equatable.dart';
 
 class FavState extends Equatable {

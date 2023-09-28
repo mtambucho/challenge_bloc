@@ -1,29 +1,44 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
 
-part 'recipe.freezed.dart';
 part 'recipe.g.dart';
 
-@freezed
-class Recipe with _$Recipe {
-  const factory Recipe({
-    @JsonKey(name: 'nombre') required String name,
-    @JsonKey(name: 'descripcion') required String description,
-    @JsonKey(name: 'ingredientes') required List<Ingredient> ingredients,
-    @JsonKey(name: 'rendimiento', defaultValue: 1) required int rendimiento,
-    @JsonKey(name: 'receta') List<String>? receta,
-  }) = _Recipe;
+@HiveType(typeId: 4)
+class Recipe extends HiveObject {
+  Recipe({
+    required this.code,
+    required this.name,
+    required this.description,
+    required this.ingredients,
+    required this.rendimiento,
+    this.receta,
+  });
 
-  factory Recipe.fromJson(Map<String, dynamic> json) => _$RecipeFromJson(json);
+  @HiveField(0)
+  final String code;
+  @HiveField(1)
+  final String name;
+  @HiveField(2)
+  final String description;
+  @HiveField(3)
+  final List<Ingredient> ingredients;
+  @HiveField(4)
+  final int rendimiento;
+  @HiveField(5)
+  final List<String>? receta;
 }
 
-@freezed
-class Ingredient with _$Ingredient {
-  factory Ingredient({
-    @JsonKey(name: 'cant', defaultValue: 0.0) required double quantity,
-    @JsonKey(name: 'unit') required String? unit,
-    @JsonKey(name: 'description') required String name,
-  }) = _Ingredient;
+@HiveType(typeId: 5)
+class Ingredient extends HiveObject {
+  Ingredient({
+    required this.quantity,
+    required this.unit,
+    required this.name,
+  });
 
-  factory Ingredient.fromJson(Map<String, dynamic> json) =>
-      _$IngredientFromJson(json);
+  @HiveField(0)
+  final double quantity;
+  @HiveField(1)
+  final String? unit;
+  @HiveField(2)
+  final String name;
 }
