@@ -1,11 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
-import 'package:challenge_bloc/features/fav/application/fav_cubit.dart';
-import 'package:challenge_bloc/features/fav/application/fav_state.dart';
-import 'package:challenge_bloc/features/recipes/application/recipes_cubit.dart';
-import 'package:challenge_bloc/features/recipes/application/recipes_state.dart';
-import 'package:challenge_bloc/features/recipes/domain/recipe_value.dart';
-import 'package:challenge_bloc/features/recipes/presentation/recipes_view.dart';
+import 'package:challenge_bloc/features/fav/fav.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

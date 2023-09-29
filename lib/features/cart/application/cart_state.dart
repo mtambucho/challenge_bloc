@@ -1,5 +1,4 @@
-import 'package:challenge_bloc/features/cart/domain/cart_item.dart';
-import 'package:equatable/equatable.dart';
+part of 'cart_cubit.dart';
 
 class CartState extends Equatable {
   const CartState({required this.items});

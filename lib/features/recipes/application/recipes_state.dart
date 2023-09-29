@@ -1,6 +1,4 @@
-import 'package:challenge_bloc/features/recipes/domain/recipe_value.dart';
-import 'package:challenge_bloc/features/recipes/recipes.dart';
-import 'package:equatable/equatable.dart';
+part of 'recipes_cubit.dart';
 
 class RecipesState extends Equatable {
   const RecipesState({

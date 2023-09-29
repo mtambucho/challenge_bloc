@@ -1,8 +1,11 @@
-import 'package:challenge_bloc/features/fav/application/fav_state.dart';
 import 'package:challenge_bloc/features/fav/domain/fav_repository.dart';
 import 'package:challenge_bloc/features/recipes/domain/recipe.dart';
+import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:collection/collection.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+part 'fav_state.dart';
 
 class FavCubit extends Cubit<FavState> {
   FavCubit(this.repository) : super(const FavState()) {

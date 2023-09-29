@@ -1,16 +1,11 @@
 import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
-import 'package:challenge_bloc/features/fav/application/fav_cubit.dart';
-import 'package:challenge_bloc/features/fav/application/fav_state.dart';
-import 'package:challenge_bloc/features/fav/presentation/fav_widget.dart';
+import 'package:challenge_bloc/features/fav/fav.dart';
 import 'package:challenge_bloc/features/home/home.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-///create another ItemWidge
-///create another ItemWidget but receive a receta and show all the information
-///in a blue card with rounded borders
 class RecipesItem extends StatelessWidget {
   const RecipesItem({
     required this.recipe,

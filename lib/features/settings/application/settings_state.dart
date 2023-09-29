@@ -1,6 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:challenge_bloc/common/utils/utils.dart';
-import 'package:equatable/equatable.dart';
+part of 'settings_cubit.dart';
 
 class SettingsState extends Equatable {
   const SettingsState({required this.language, this.fistDayOfChallenge});

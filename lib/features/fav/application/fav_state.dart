@@ -1,5 +1,4 @@
-import 'package:challenge_bloc/features/recipes/recipes.dart';
-import 'package:equatable/equatable.dart';
+part of 'fav_cubit.dart';
 
 class FavState extends Equatable {
   const FavState({

@@ -1,6 +1,4 @@
 import 'package:challenge_bloc/features/authentication/authentication.dart';
-import 'package:challenge_bloc/features/recipes/application/recipes_cubit.dart';
-import 'package:challenge_bloc/features/recipes/presentation/recipes_view.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:challenge_bloc/features/settings/settings.dart';
 import 'package:flutter/material.dart';

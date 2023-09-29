@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:hive/hive.dart';
 
 part 'recipe.g.dart';
@@ -41,4 +42,16 @@ class Ingredient extends HiveObject {
   final String? unit;
   @HiveField(2)
   final String name;
+
+  Ingredient copyWith({
+    double? quantity,
+    String? unit,
+    String? name,
+  }) {
+    return Ingredient(
+      quantity: quantity ?? this.quantity,
+      unit: unit ?? this.unit,
+      name: name ?? this.name,
+    );
+  }
 }

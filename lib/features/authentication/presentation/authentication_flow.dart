@@ -1,5 +1,4 @@
-import 'package:challenge_bloc/features/authentication/application/authentication_cubit.dart';
-import 'package:challenge_bloc/features/authentication/application/authentication_state.dart';
+import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/authentication/routes/routes.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';

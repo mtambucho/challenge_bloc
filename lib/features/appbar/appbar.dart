@@ -12,6 +12,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.leading,
     this.showFav = false,
+    this.showCart = true,
   });
 
   final String? title;
@@ -19,6 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final Widget? leading;
   final bool showFav;
+  final bool showCart;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         actions: [
           ...?actions,
           if (showFav) const FavStarWidget(),
-          const CartWidget(),
+          if (showCart) const CartWidget(),
         ],
         leading: leading,
       ),

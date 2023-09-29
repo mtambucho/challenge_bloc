@@ -1,6 +1,7 @@
-import 'package:challenge_bloc/features/authentication/application/authentication_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+
+part 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationState.loading);

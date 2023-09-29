@@ -1,9 +1,10 @@
 import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
-import 'package:challenge_bloc/features/recipes/application/recipes_state.dart';
-import 'package:challenge_bloc/features/recipes/domain/recipe_value.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+part 'recipes_state.dart';
 
 class RecipesCubit extends Cubit<RecipesState> {
   RecipesCubit(

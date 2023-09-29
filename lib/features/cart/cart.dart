@@ -1,6 +1,5 @@
 export 'package:challenge_bloc/features/cart/application/cart_cubit.dart';
-export 'package:challenge_bloc/features/cart/application/cart_nav_state.dart';
-export 'package:challenge_bloc/features/cart/application/cart_state.dart';
+export 'package:challenge_bloc/features/cart/application/cart_nav_cubit.dart';
 export 'package:challenge_bloc/features/cart/domain/cart_item.dart';
 export 'package:challenge_bloc/features/cart/domain/cart_repository.dart';
 export 'package:challenge_bloc/features/cart/infrastructure/cart_repository_impl.dart';

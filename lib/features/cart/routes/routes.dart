@@ -1,6 +1,5 @@
-import 'package:challenge_bloc/features/cart/application/cart_nav_state.dart';
-import 'package:challenge_bloc/features/cart/presentation/cart_flow.dart';
-import 'package:challenge_bloc/features/cart/presentation/cart_page.dart';
+import 'package:challenge_bloc/features/cart/cart.dart';
+import 'package:challenge_bloc/features/shopping_list/presentation/shopping_list_page.dart';
 import 'package:flutter/material.dart';
 
 List<Page<dynamic>> onGenerateLocationPages(
@@ -13,7 +12,7 @@ List<Page<dynamic>> onGenerateLocationPages(
       ],
     CartNavState.shoppingList => [
         CartPage.page(),
-        CartPage2.page(),
+        ShoppingListPage.page(),
       ],
   };
 }

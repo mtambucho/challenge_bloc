@@ -1,7 +1,5 @@
 import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/appbar/appbar.dart';
-import 'package:challenge_bloc/features/recipe_details/application/recipe_details_cubit.dart';
-import 'package:challenge_bloc/features/recipe_details/application/recipe_details_state.dart';
 import 'package:challenge_bloc/features/recipe_details/recipe_details.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:flutter/material.dart';

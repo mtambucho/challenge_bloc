@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+part of 'recipe_details_cubit.dart';
 
 class RecipeDetailsState extends Equatable {
   const RecipeDetailsState({required this.recipesAmount});

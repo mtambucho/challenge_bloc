@@ -1,4 +1,5 @@
 import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/features/appbar/appbar.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +13,12 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: CustomAppBar(
         leading: BackButton(
           onPressed: () => context.flow<CartNavState>().complete(),
         ),
-        title: Text(context.l10n.cart),
+        title: context.l10n.cart,
+        showCart: false,
       ),
       body: BlocBuilder<CartCubit, CartState>(
         builder: (context, state) {
