@@ -1,3 +1,4 @@
+import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/recipes/domain/meal_type.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -8,7 +9,7 @@ part 'recipes_params.g.dart';
 class RecipesParams with _$RecipesParams {
   const factory RecipesParams({
     required MealType type,
-    required String locale,
+    required Language language,
   }) = _RecipesParams;
 
   factory RecipesParams.fromJson(Map<String, dynamic> json) =>

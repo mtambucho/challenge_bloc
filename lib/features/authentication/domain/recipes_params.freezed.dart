@@ -21,7 +21,7 @@ RecipesParams _$RecipesParamsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RecipesParams {
   MealType get type => throw _privateConstructorUsedError;
-  String get locale => throw _privateConstructorUsedError;
+  Language get language => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $RecipesParamsCopyWith<$Res> {
           RecipesParams value, $Res Function(RecipesParams) then) =
       _$RecipesParamsCopyWithImpl<$Res, RecipesParams>;
   @useResult
-  $Res call({MealType type, String locale});
+  $Res call({MealType type, Language language});
 }
 
 /// @nodoc
@@ -52,17 +52,17 @@ class _$RecipesParamsCopyWithImpl<$Res, $Val extends RecipesParams>
   @override
   $Res call({
     Object? type = null,
-    Object? locale = null,
+    Object? language = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as MealType,
-      locale: null == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
-              as String,
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as Language,
     ) as $Val);
   }
 }
@@ -75,7 +75,7 @@ abstract class _$$_RecipesParamsCopyWith<$Res>
       __$$_RecipesParamsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({MealType type, String locale});
+  $Res call({MealType type, Language language});
 }
 
 /// @nodoc
@@ -90,17 +90,17 @@ class __$$_RecipesParamsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? type = null,
-    Object? locale = null,
+    Object? language = null,
   }) {
     return _then(_$_RecipesParams(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as MealType,
-      locale: null == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
-              as String,
+      language: null == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as Language,
     ));
   }
 }
@@ -108,7 +108,7 @@ class __$$_RecipesParamsCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_RecipesParams implements _RecipesParams {
-  const _$_RecipesParams({required this.type, required this.locale});
+  const _$_RecipesParams({required this.type, required this.language});
 
   factory _$_RecipesParams.fromJson(Map<String, dynamic> json) =>
       _$$_RecipesParamsFromJson(json);
@@ -116,11 +116,11 @@ class _$_RecipesParams implements _RecipesParams {
   @override
   final MealType type;
   @override
-  final String locale;
+  final Language language;
 
   @override
   String toString() {
-    return 'RecipesParams(type: $type, locale: $locale)';
+    return 'RecipesParams(type: $type, language: $language)';
   }
 
   @override
@@ -129,12 +129,13 @@ class _$_RecipesParams implements _RecipesParams {
         (other.runtimeType == runtimeType &&
             other is _$_RecipesParams &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.locale, locale) || other.locale == locale));
+            (identical(other.language, language) ||
+                other.language == language));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, locale);
+  int get hashCode => Object.hash(runtimeType, type, language);
 
   @JsonKey(ignore: true)
   @override
@@ -153,7 +154,7 @@ class _$_RecipesParams implements _RecipesParams {
 abstract class _RecipesParams implements RecipesParams {
   const factory _RecipesParams(
       {required final MealType type,
-      required final String locale}) = _$_RecipesParams;
+      required final Language language}) = _$_RecipesParams;
 
   factory _RecipesParams.fromJson(Map<String, dynamic> json) =
       _$_RecipesParams.fromJson;
@@ -161,7 +162,7 @@ abstract class _RecipesParams implements RecipesParams {
   @override
   MealType get type;
   @override
-  String get locale;
+  Language get language;
   @override
   @JsonKey(ignore: true)
   _$$_RecipesParamsCopyWith<_$_RecipesParams> get copyWith =>

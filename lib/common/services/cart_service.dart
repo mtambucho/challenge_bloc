@@ -1,15 +1,10 @@
 import 'package:challenge_bloc/features/cart/domain/cart_item.dart';
-import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:hive/hive.dart';
 
 class CartService {
   late Box<CartItem> _cartItems;
 
   Future<void> init() async {
-    Hive
-      ..registerAdapter(CartItemAdapter())
-      ..registerAdapter(RecipeAdapter())
-      ..registerAdapter(IngredientAdapter());
     _cartItems = await Hive.openBox<CartItem>('cartItems');
   }
 

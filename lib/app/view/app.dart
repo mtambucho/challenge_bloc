@@ -1,28 +1,29 @@
-import 'dart:developer';
-
 import 'package:challenge_bloc/common/services/recipe_service.dart';
+import 'package:challenge_bloc/common/services/settings_service.dart';
 import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
 import 'package:challenge_bloc/features/fav/application/fav_cubit.dart';
 import 'package:challenge_bloc/features/fav/domain/fav_repository.dart';
 import 'package:challenge_bloc/features/fav/infrastructure/fav_repository_impl.dart';
-import 'package:challenge_bloc/l10n/application/localization_cubit.dart';
+import 'package:challenge_bloc/features/settings/infrastructure/settings_repository_impl.dart';
+import 'package:challenge_bloc/features/settings/settings.dart';
 import 'package:challenge_bloc/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 
 class App extends StatelessWidget {
   const App({
     required this.recipesRepository,
     required this.cartService,
     required this.recipeService,
+    required this.settingsService,
     super.key,
   });
   final RecipesRepository recipesRepository;
   final CartService cartService;
   final RecipeService recipeService;
+  final SettingsService settingsService;
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
@@ -37,7 +38,10 @@ class App extends StatelessWidget {
           _configureCartCubit(),
           _configureLocalizationCubit(),
         ],
-        child: BlocBuilder<LocalizationCubit, LocalizationState>(
+        child: BlocBuilder<SettingsCubit, SettingsState>(
+          buildWhen: (previous, current) {
+            return previous.language != current.language;
+          },
           builder: (context, state) {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
@@ -45,7 +49,7 @@ class App extends StatelessWidget {
               localizationsDelegates: AppLocalizations.localizationsDelegates,
               supportedLocales: AppLocalizations.supportedLocales,
               home: const AuthenticationFlow(),
-              locale: state.locale,
+              locale: state.language.getLocale(),
             );
           },
         ),
@@ -53,22 +57,17 @@ class App extends StatelessWidget {
     );
   }
 
-  Locale getLocale() {
-    final localeStr = Intl.getCurrentLocale();
-    log('localeStr==>>>$localeStr');
-
-    if (localeStr.length >= 2) {
-      return Locale(localeStr.substring(0, 2));
-      // return const Locale('es');
-    } else {
-      return const Locale('en');
-    }
-  }
-
-  BlocProvider<LocalizationCubit> _configureLocalizationCubit() {
-    return BlocProvider<LocalizationCubit>(
-      create: (context) =>
-          LocalizationCubit(LocalizationState(locale: getLocale())),
+  BlocProvider<SettingsCubit> _configureLocalizationCubit() {
+    final repository = SettingsRepositoryImpl(settingsService);
+    final settings = repository.getSettings();
+    return BlocProvider<SettingsCubit>(
+      create: (context) => SettingsCubit(
+        SettingsState(
+          language: settings.languageCode,
+          fistDayOfChallenge: settings.firstDay,
+        ),
+        settingsRepository: SettingsRepositoryImpl(settingsService),
+      ),
     );
   }
 

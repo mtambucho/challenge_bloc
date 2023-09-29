@@ -1,14 +1,14 @@
+import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/recipes/application/recipes_state.dart';
 import 'package:challenge_bloc/features/recipes/domain/recipe_value.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RecipesCubit extends Cubit<RecipesState> {
   RecipesCubit(
     this._recipesRepository,
-    this.locale,
+    this.language,
     MealType mealType,
   ) : super(
           RecipesState(
@@ -17,12 +17,12 @@ class RecipesCubit extends Cubit<RecipesState> {
           ),
         );
   final RecipesRepository _recipesRepository;
-  final Locale locale;
+  final Language language;
 
   Future<void> getRecipes() async {
     final params = RecipesParams(
       type: state.mealType,
-      locale: locale.languageCode,
+      language: language,
     );
     try {
       final list = await _recipesRepository.getRecipes(params);

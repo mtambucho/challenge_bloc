@@ -16,4 +16,8 @@ class AppImages {
 
   ///empty data
   static String noMealsToShow = 'assets/images/no_data.svg';
+
+  ///language
+  static String icSpain = 'assets/images/ic_es.svg';
+  static String icUsa = 'assets/images/ic_en.svg';
 }

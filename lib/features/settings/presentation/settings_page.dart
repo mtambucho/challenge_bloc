@@ -1,3 +1,4 @@
+import 'package:challenge_bloc/features/settings/presentation/settings_view.dart';
 import 'package:flutter/material.dart';
 
 class SettingPage extends StatelessWidget {
@@ -7,7 +8,7 @@ class SettingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('settings')),
+      body: SettingsView(),
     );
   }
 }

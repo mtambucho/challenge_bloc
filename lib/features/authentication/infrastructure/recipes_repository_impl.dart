@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:challenge_bloc/common/database/database_client.dart';
 import 'package:challenge_bloc/common/database/supabase/models/supabase_recipe_ingredient.dart';
 import 'package:challenge_bloc/common/services/recipe_service.dart';
+import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 
@@ -44,7 +45,7 @@ class RecipesRepositoryImpl implements RecipesRepository {
     try {
       final supabaseRecipes = await databaseClient.getRecipes(params);
       final list =
-          supabaseRecipes.map((r) => r.toRecipe(params.locale)).toList();
+          supabaseRecipes.map((r) => r.toRecipe(params.language)).toList();
       return list;
     } catch (e) {
       log('==>>$e');
@@ -63,25 +64,25 @@ class RecipesRepositoryImpl implements RecipesRepository {
 }
 
 extension on SupabaseRecipe {
-  Recipe toRecipe(String locale) {
+  Recipe toRecipe(Language language) {
     return Recipe(
       code: code,
-      description: description[locale] ?? '',
+      description: description[language.code] ?? '',
       ingredients:
-          ingredients?.map((e) => e.toIngredient(locale)).toList() ?? [],
-      receta: recipe[locale],
-      name: name[locale] ?? '',
+          ingredients?.map((e) => e.toIngredient(language)).toList() ?? [],
+      receta: recipe[language.code],
+      name: name[language.code] ?? '',
       rendimiento: quantity,
     );
   }
 }
 
 extension on SupabaseRecipeIngredient {
-  Ingredient toIngredient(String locale) {
+  Ingredient toIngredient(Language language) {
     return Ingredient(
-      name: ingredient.name[locale] ?? '',
+      name: ingredient.name[language.code] ?? '',
       quantity: count?.toDouble() ?? 0.0,
-      unit: unit.name[locale],
+      unit: unit.name[language.code],
     );
   }
 }

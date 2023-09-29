@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'recipe.g.dart';
 
-@HiveType(typeId: 4)
+@HiveType(typeId: 2)
 class Recipe extends HiveObject {
   Recipe({
     required this.code,
@@ -27,7 +27,7 @@ class Recipe extends HiveObject {
   final List<String>? receta;
 }
 
-@HiveType(typeId: 5)
+@HiveType(typeId: 3)
 class Ingredient extends HiveObject {
   Ingredient({
     required this.quantity,

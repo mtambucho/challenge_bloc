@@ -1,10 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
+import 'package:challenge_bloc/common/utils/utils.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/recipes/application/recipes_cubit.dart';
 import 'package:challenge_bloc/features/recipes/application/recipes_state.dart';
 import 'package:challenge_bloc/features/recipes/domain/recipe_value.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -12,7 +12,7 @@ class MockRecipeRpository extends Mock implements RecipesRepositoryImpl {}
 
 void main() {
   final recipeRepository = MockRecipeRpository();
-  const locale = Locale('en');
+  const language = Language.en;
   const initMealtype = MealType.breakfast;
 
   group('CounterCubit', () {
@@ -20,7 +20,7 @@ void main() {
       expect(
         RecipesCubit(
           recipeRepository,
-          locale,
+          language,
           initMealtype,
         ).state.mealType,
         equals(MealType.breakfast),
@@ -31,13 +31,13 @@ void main() {
       'change mealtype and recipes when mealtype is changed',
       build: () => RecipesCubit(
         recipeRepository,
-        locale,
+        language,
         initMealtype,
       ),
       setUp: () {
         when(
           () => recipeRepository.getRecipes(
-            const RecipesParams(type: MealType.lunch, locale: 'en'),
+            const RecipesParams(type: MealType.lunch, language: language),
           ),
         ).thenAnswer((_) async => []);
       },
@@ -60,13 +60,13 @@ void main() {
     'emit [RecipeValue.loading, RecipeValue.error] when get recipes fails',
     build: () => RecipesCubit(
       recipeRepository,
-      locale,
+      language,
       initMealtype,
     ),
     setUp: () {
       when(
         () => recipeRepository.getRecipes(
-          const RecipesParams(type: MealType.lunch, locale: 'en'),
+          const RecipesParams(type: MealType.lunch, language: language),
         ),
       ).thenThrow(Exception());
     },

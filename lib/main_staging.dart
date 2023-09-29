@@ -2,7 +2,9 @@ import 'package:challenge_bloc/app/app.dart';
 import 'package:challenge_bloc/bootstrap.dart';
 import 'package:challenge_bloc/common/database/supabase/supabase_database_client.dart';
 import 'package:challenge_bloc/common/services/cart_service.dart';
+import 'package:challenge_bloc/common/services/hive_service.dart';
 import 'package:challenge_bloc/common/services/recipe_service.dart';
+import 'package:challenge_bloc/common/services/settings_service.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -22,11 +24,15 @@ Future<void> main() async {
   );
 
   await bootstrap(() async {
+    HiveService.registerAdapters();
     final cartService = CartService();
     await cartService.init();
 
     final recipeService = RecipeService();
     await recipeService.init();
+
+    final settingsService = SettingsService();
+    await settingsService.init();
 
     final databaseClient = SupabaseDatabaseRecipes(
       supabaseClient: Supabase.instance.client,
@@ -38,6 +44,7 @@ Future<void> main() async {
     );
 
     return App(
+      settingsService: settingsService,
       cartService: cartService,
       recipeService: recipeService,
       recipesRepository: recipesRepository,

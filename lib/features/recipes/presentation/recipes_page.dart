@@ -2,7 +2,7 @@ import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/recipes/application/recipes_cubit.dart';
 import 'package:challenge_bloc/features/recipes/presentation/recipes_view.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
-import 'package:challenge_bloc/l10n/application/localization_cubit.dart';
+import 'package:challenge_bloc/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +17,7 @@ class RecipesPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => RecipesCubit(
         context.read<RecipesRepository>(),
-        context.read<LocalizationCubit>().state.locale,
+        context.read<SettingsCubit>().state.language,
         mealType,
       )..getRecipes(),
       child: const RecipesView(),

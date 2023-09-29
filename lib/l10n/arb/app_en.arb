@@ -33,7 +33,14 @@
     "fasting": "Fasting",
     "noRecipes": "No recipes to show",
     "cartEmpty": "The cart is empty",
+    "english": "English",
+    "spanish": "Spanish",
+    "language": "Language",
+    "noDateSelected": "No ha seleccionado fecha",
     "portions": "Portions {portions}",
+    "today": "Today",
+    "cancel": "Cancel",
+    "done": "Done",
     "@portions": {
         "description": "Number of portions of a recipe",
         "placeholders": {
