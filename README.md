@@ -5,11 +5,11 @@ It's a project that brings together healthy recipes, a 45-day challenge, and int
 
 ## Previews
 
-<img src="https://github.com/mtambucho/challenge/blob/develop/preview1.png" alt="Recipes" width=50% height=50%>
-<img src="https://github.com/mtambucho/challenge/blob/develop/preview2.png" alt="Challenge" width=50% height=50%>
-<img src="https://github.com/mtambucho/challenge/blob/develop/preview3.png" alt="Details" width=50% height=50%>
-<img src="https://github.com/mtambucho/challenge/blob/develop/preview4.png" alt="Cart" width=50% height=50%>
-<img src="https://github.com/mtambucho/challenge/blob/develop/preview5.png" alt="Shopping list" width=50% height=50%>
+<img src="https://github.com/mtambucho/challenge_bloc/blob/main/preview1.png" alt="Recipes" width=50% height=50%>
+<img src="https://github.com/mtambucho/challenge_bloc/blob/main/preview2.png" alt="Settings" width=50% height=50%>
+<img src="https://github.com/mtambucho/challenge_bloc/blob/main/preview3.png" alt="Cart" width=50% height=50%>
+<img src="https://github.com/mtambucho/challenge_bloc/blob/main/preview4.png" alt="Purchase List" width=50% height=50%>
+
 
 
 
