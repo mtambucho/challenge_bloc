@@ -24,7 +24,6 @@ dependencies:
   hive_flutter: ^1.1.0
   intl: ^0.18.0
   json_annotation: ^4.8.1
-  shared_preferences: ^2.2.1
   shimmer: ^3.0.0
   supabase_flutter: ^1.6.2
 
