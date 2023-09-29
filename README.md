@@ -21,7 +21,7 @@ It's a project that brings together healthy recipes, a 45-day challenge, and int
 - BLoC ✅
 - Navigation with flow_builder ✅
 - Local Database (Hive) ✅
-- Database conecction (subabase) ✅
+- Database connection (Supabase) ✅
 - Intl ✅
 - Unit Testing (in process)
 - Widget Testing (in process)
