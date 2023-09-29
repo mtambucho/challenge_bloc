@@ -1,6 +1,5 @@
 import 'package:challenge_bloc/common/utils/constants/colors.dart';
 import 'package:challenge_bloc/features/home/home.dart';
-import 'package:challenge_bloc/features/home/presentation/widgets/nav_bar_icon.dart';
 import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,4 +1,4 @@
-import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/common/utils.dart';
 import 'package:challenge_bloc/features/appbar/appbar.dart';
 import 'package:challenge_bloc/features/shopping_list/shopping_list.dart';
 import 'package:flutter/material.dart';

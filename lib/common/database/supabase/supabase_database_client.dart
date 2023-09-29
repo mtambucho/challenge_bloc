@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:challenge_bloc/common/database/supabase/models/models.dart';
-import 'package:challenge_bloc/features/authentication/domain/recipes_params.dart';
+import 'package:challenge_bloc/common/database/database_client.dart';
+import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 /// A generic supabase database exception.

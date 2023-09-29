@@ -6,4 +6,5 @@ export 'package:challenge_bloc/features/recipes/presentation/recipes_page.dart';
 export 'package:challenge_bloc/features/recipes/presentation/recipes_view.dart';
 export 'package:challenge_bloc/features/recipes/presentation/widgets/meals_bubbles.dart';
 export 'package:challenge_bloc/features/recipes/presentation/widgets/recipe_item_loading.dart';
+export 'package:challenge_bloc/features/recipes/presentation/widgets/recipes_item.dart';
 export 'package:challenge_bloc/features/recipes/presentation/widgets/recipes_list.dart';

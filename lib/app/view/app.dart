@@ -1,6 +1,5 @@
-import 'package:challenge_bloc/common/services/recipe_service.dart';
-import 'package:challenge_bloc/common/services/settings_service.dart';
-import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/common/services.dart';
+import 'package:challenge_bloc/common/utils.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
 import 'package:challenge_bloc/features/fav/application/fav_cubit.dart';

@@ -1,6 +1,6 @@
 import 'package:challenge_bloc/common/utils/constants/colors.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
-import 'package:challenge_bloc/features/fav/presentation/fav_star_widget.dart';
+import 'package:challenge_bloc/features/fav/fav.dart';
 import 'package:flutter/material.dart';
 
 ///create a custom app bar to reuse in the hole application

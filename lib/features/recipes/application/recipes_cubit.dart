@@ -1,4 +1,4 @@
-import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/common/utils.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:equatable/equatable.dart';

@@ -1,10 +1,7 @@
 import 'package:challenge_bloc/app/app.dart';
 import 'package:challenge_bloc/bootstrap.dart';
-import 'package:challenge_bloc/common/database/supabase/supabase_database_client.dart';
-import 'package:challenge_bloc/common/services/cart_service.dart';
-import 'package:challenge_bloc/common/services/hive_service.dart';
-import 'package:challenge_bloc/common/services/recipe_service.dart';
-import 'package:challenge_bloc/common/services/settings_service.dart';
+import 'package:challenge_bloc/common/database.dart';
+import 'package:challenge_bloc/common/services.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';

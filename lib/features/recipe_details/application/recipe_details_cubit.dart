@@ -1,4 +1,4 @@
-import 'package:challenge_bloc/features/recipe_details/presentation/widgets/recipe_details_icons.dart';
+import 'package:challenge_bloc/features/recipe_details/recipe_details.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -1,7 +1,5 @@
-import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/common/utils.dart';
 import 'package:challenge_bloc/features/appbar/appbar.dart';
-import 'package:challenge_bloc/features/settings/presentation/settings_styles.dart';
-import 'package:challenge_bloc/features/settings/presentation/widgets/date_selector.dart';
 import 'package:challenge_bloc/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

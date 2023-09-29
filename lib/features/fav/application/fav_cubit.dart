@@ -1,5 +1,4 @@
-import 'package:challenge_bloc/features/fav/domain/fav_repository.dart';
-import 'package:challenge_bloc/features/recipes/domain/recipe.dart';
+import 'package:challenge_bloc/features/fav/fav.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:collection/collection.dart';
 import 'package:equatable/equatable.dart';

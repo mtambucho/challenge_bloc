@@ -1,5 +1,5 @@
-import 'package:challenge_bloc/common/utils/utils.dart';
-import 'package:challenge_bloc/features/recipes/domain/meal_type.dart';
+import 'package:challenge_bloc/common/utils.dart';
+import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'recipes_params.freezed.dart';

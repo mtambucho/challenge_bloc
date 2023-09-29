@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/common/utils.dart';
 import 'package:challenge_bloc/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 

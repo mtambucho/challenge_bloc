@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:challenge_bloc/common/utils/utils.dart';
-import 'package:challenge_bloc/features/settings/domain/settings_item.dart';
+import 'package:challenge_bloc/common/utils.dart';
+import 'package:challenge_bloc/features/settings/settings.dart';
 import 'package:hive/hive.dart';
 
 class SettingsService {

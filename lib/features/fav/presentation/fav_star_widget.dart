@@ -1,6 +1,4 @@
-// import 'package:flutter/material.dart';
-
-import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/common/utils.dart';
 import 'package:challenge_bloc/features/fav/fav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

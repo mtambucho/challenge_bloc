@@ -1,9 +1,6 @@
-import 'dart:developer';
-
-import 'package:challenge_bloc/common/database/database_client.dart';
-import 'package:challenge_bloc/common/database/supabase/models/supabase_recipe_ingredient.dart';
-import 'package:challenge_bloc/common/services/recipe_service.dart';
-import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/common/database.dart';
+import 'package:challenge_bloc/common/services.dart';
+import 'package:challenge_bloc/common/utils.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 
@@ -48,7 +45,6 @@ class RecipesRepositoryImpl implements RecipesRepository {
           supabaseRecipes.map((r) => r.toRecipe(params.language)).toList();
       return list;
     } catch (e) {
-      log('==>>$e');
       return [];
     }
   }
@@ -57,7 +53,6 @@ class RecipesRepositoryImpl implements RecipesRepository {
     try {
       return recipeService.getRecipes(params.type) ?? [];
     } catch (e) {
-      log('==>>$e');
       return [];
     }
   }

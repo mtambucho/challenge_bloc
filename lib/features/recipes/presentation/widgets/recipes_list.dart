@@ -1,7 +1,6 @@
-import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/common/utils.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
 import 'package:challenge_bloc/features/fav/fav.dart';
-import 'package:challenge_bloc/features/recipes/presentation/widgets/recipes_item.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';

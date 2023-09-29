@@ -1,5 +1,5 @@
 import 'package:challenge_bloc/common/services/settings_service.dart';
-import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/common/utils.dart';
 import 'package:challenge_bloc/features/settings/settings.dart';
 
 class SettingsRepositoryImpl implements SettingsRepository {

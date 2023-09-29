@@ -1,6 +1,5 @@
 import 'package:challenge_bloc/common/services/cart_service.dart';
-import 'package:challenge_bloc/features/cart/domain/cart_item.dart';
-import 'package:challenge_bloc/features/cart/domain/cart_repository.dart';
+import 'package:challenge_bloc/features/cart/cart.dart';
 
 class CartRepositoryImpl extends CartRepository {
   CartRepositoryImpl({

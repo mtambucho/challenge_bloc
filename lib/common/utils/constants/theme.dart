@@ -1,4 +1,4 @@
-import 'package:challenge_bloc/common/utils/utils.dart';
+import 'package:challenge_bloc/common/utils.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {

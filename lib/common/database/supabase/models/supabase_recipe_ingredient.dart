@@ -1,5 +1,4 @@
-import 'package:challenge_bloc/common/database/supabase/models/supabase_ingredient.dart';
-import 'package:challenge_bloc/common/database/supabase/models/supabase_unit.dart';
+import 'package:challenge_bloc/common/database/database_client.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 

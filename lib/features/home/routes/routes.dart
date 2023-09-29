@@ -1,4 +1,3 @@
-import 'package:challenge_bloc/features/challenge/challenge.dart';
 import 'package:challenge_bloc/features/home/home.dart';
 import 'package:challenge_bloc/features/recipe_details/recipe_details.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
@@ -21,6 +20,6 @@ List<Page<dynamic>> onGenerateNavBarPages(
     // HomeStatus.excercise => [ExcercisePage.page()],
     // HomeStatus.fasting => [FastingPage.page()],
     HomeStatus.settings => [SettingPage.page()],
-    HomeStatus.challenge => [ChallengePage.page()],
+    // HomeStatus.challenge => [ChallengePage.page()],
   };
 }
