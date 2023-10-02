@@ -5,10 +5,10 @@ import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-class MockRecipeRpository extends Mock implements RecipesRepositoryImpl {}
+class MockRecipeRepository extends Mock implements RecipesRepositoryImpl {}
 
 void main() {
-  final recipeRepository = MockRecipeRpository();
+  final recipeRepository = MockRecipeRepository();
   const language = Language.en;
   const initMealtype = MealType.breakfast;
 

@@ -1,9 +1,10 @@
+import 'package:equatable/equatable.dart';
 import 'package:hive/hive.dart';
 
 part 'recipe.g.dart';
 
 @HiveType(typeId: 2)
-class Recipe extends HiveObject {
+class Recipe extends HiveObject with EquatableMixin {
   Recipe({
     required this.code,
     required this.name,
@@ -25,10 +26,20 @@ class Recipe extends HiveObject {
   final int rendimiento;
   @HiveField(5)
   final List<String>? receta;
+
+  @override
+  List<Object?> get props => [
+        code,
+        name,
+        description,
+        ingredients,
+        rendimiento,
+        receta,
+      ];
 }
 
 @HiveType(typeId: 3)
-class Ingredient extends HiveObject {
+class Ingredient extends HiveObject with EquatableMixin {
   Ingredient({
     required this.quantity,
     required this.unit,
@@ -53,4 +64,11 @@ class Ingredient extends HiveObject {
       name: name ?? this.name,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        quantity,
+        unit,
+        name,
+      ];
 }

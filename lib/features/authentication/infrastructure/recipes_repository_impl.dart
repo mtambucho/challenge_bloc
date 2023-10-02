@@ -58,7 +58,7 @@ class RecipesRepositoryImpl implements RecipesRepository {
   }
 }
 
-extension on SupabaseRecipe {
+extension SupabaseRecipeHelper on SupabaseRecipe {
   Recipe toRecipe(Language language) {
     return Recipe(
       code: code,
@@ -72,7 +72,7 @@ extension on SupabaseRecipe {
   }
 }
 
-extension on SupabaseRecipeIngredient {
+extension SupabaseRecipeIngredientHelper on SupabaseRecipeIngredient {
   Ingredient toIngredient(Language language) {
     return Ingredient(
       name: ingredient.name[language.code] ?? '',

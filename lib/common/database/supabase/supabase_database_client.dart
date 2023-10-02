@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:challenge_bloc/common/database/database_client.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -29,14 +27,15 @@ class SupabaseDatabaseRecipes {
   /// Method to get the recipe information by mealtype
   Future<List<SupabaseRecipe>> getRecipes(RecipesParams params) async {
     try {
-      log('==>>${params.type.toRawValue()}');
-      final columns = TableRecipe.values.map((e) => e.value).toList();
+      final recipeColumns =
+          TableRecipe.values.map((e) => e.value).toList().join(',');
+      final ingredientQtyColumns =
+          TableIngredientQuantity.values.map((e) => e.value).toList().join(',');
+      final ingredientQtyTable = TableIngredientQuantity.tableName;
       final response = await _supabaseClient
           .from(TableRecipe.tableName)
           .select<PostgrestList>(
-            '${columns.join(',')},'
-            'ingredient_quantity(id,recipe,'
-            'unit(code,name),count,ingredient(code,name))',
+            '$recipeColumns,$ingredientQtyTable($ingredientQtyColumns)',
           )
           .eq(
             TableRecipe.mealType.value,
