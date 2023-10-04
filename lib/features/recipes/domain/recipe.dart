@@ -1,3 +1,4 @@
+import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hive/hive.dart';
 
@@ -11,6 +12,7 @@ class Recipe extends HiveObject with EquatableMixin {
     required this.description,
     required this.ingredients,
     required this.rendimiento,
+    this.mealType,
     this.receta,
   });
 
@@ -26,6 +28,8 @@ class Recipe extends HiveObject with EquatableMixin {
   final int rendimiento;
   @HiveField(5)
   final List<String>? receta;
+  @HiveField(6)
+  final MealType? mealType;
 
   @override
   List<Object?> get props => [
@@ -35,6 +39,7 @@ class Recipe extends HiveObject with EquatableMixin {
         ingredients,
         rendimiento,
         receta,
+        mealType,
       ];
 }
 

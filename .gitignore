@@ -67,6 +67,8 @@ unlinked_spec.ds
 **/android/key.properties
 **/android/.idea/
 *.jks
+google-services.json
+
 
 # iOS/XCode related
 **/ios/**/*.mode1v3
@@ -130,3 +132,4 @@ assets/.env
 
 # Database related
 *.sql
+

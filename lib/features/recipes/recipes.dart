@@ -1,3 +1,4 @@
+export 'package:challenge_bloc/features/authentication/domain/recipe_params.dart';
 export 'package:challenge_bloc/features/recipes/application/recipes_cubit.dart';
 export 'package:challenge_bloc/features/recipes/domain/meal_type.dart';
 export 'package:challenge_bloc/features/recipes/domain/recipe.dart';

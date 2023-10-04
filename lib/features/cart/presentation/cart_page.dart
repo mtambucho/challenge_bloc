@@ -42,7 +42,7 @@ class CartPage extends StatelessWidget {
                   },
                 ),
               ),
-              CartButton(
+              ShoppingListButton(
                 enabled: state.items.isNotEmpty,
               ),
             ],

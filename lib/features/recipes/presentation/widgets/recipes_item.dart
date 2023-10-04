@@ -1,4 +1,5 @@
 import 'package:challenge_bloc/common/utils.dart';
+import 'package:challenge_bloc/common/widgets/cart_button.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
 import 'package:challenge_bloc/features/fav/fav.dart';
 import 'package:challenge_bloc/features/home/home.dart';
@@ -107,13 +108,9 @@ class _Buttons extends StatelessWidget {
             );
           },
         ),
-        IconButton(
-          icon: Icon(
-            inCart ? Icons.shopping_cart : Icons.shopping_cart_outlined,
-            color: inCart ? AppColors.primary : Colors.grey.shade700,
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          onPressed: onTap,
+        CartButton(
+          inCart: inCart,
+          onTap: onTap,
         ),
       ],
     );

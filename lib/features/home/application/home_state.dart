@@ -5,17 +5,24 @@ class HomeState extends Equatable {
     this.selectedRecipe,
     this.selectedMealType,
     this.status = HomeStatus.recipes,
+    this.redirect,
   });
 
   final HomeStatus status;
   final Recipe? selectedRecipe;
   final MealType? selectedMealType;
+  final DeepLinkRedirect? redirect;
 
   @override
-  List<Object> get props =>
-      [status, selectedRecipe ?? '', selectedMealType ?? ''];
+  List<Object> get props => [
+        status,
+        selectedRecipe ?? '',
+        selectedMealType ?? '',
+        redirect ?? '',
+      ];
 
-  bool get showDetails => selectedRecipe != null && selectedMealType != null;
+  bool get showDetails =>
+      (selectedRecipe != null && selectedMealType != null) || redirect != null;
 
   HomeState copyWith({
     HomeStatus? status,

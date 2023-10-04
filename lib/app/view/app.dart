@@ -1,4 +1,5 @@
 import 'package:challenge_bloc/common/services.dart';
+import 'package:challenge_bloc/common/services/dynamic_link/infrastructure/deeplink_repository.dart';
 import 'package:challenge_bloc/common/utils.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
 import 'package:challenge_bloc/features/cart/cart.dart';
@@ -30,6 +31,8 @@ class App extends StatelessWidget {
         _configureRecipesRepository(),
         _configureFavRepository(),
         _configureCartRepository(),
+        _configureCartRepository(),
+        _configureDeepLinkRepository(),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -102,4 +105,9 @@ class App extends StatelessWidget {
           hiveStorageManager: cartService,
         ),
       );
+  RepositoryProvider<FirebaseDeepLinkRepository>
+      _configureDeepLinkRepository() =>
+          RepositoryProvider<FirebaseDeepLinkRepository>(
+            create: (_) => FirebaseDeepLinkRepository(),
+          );
 }

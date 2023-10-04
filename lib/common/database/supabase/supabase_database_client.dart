@@ -1,5 +1,6 @@
 import 'package:challenge_bloc/common/database/database_client.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
+import 'package:challenge_bloc/features/authentication/domain/recipe_params.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 /// A generic supabase database exception.
@@ -44,6 +45,36 @@ class SupabaseDatabaseRecipes {
       final list = response.map(SupabaseRecipe.fromJson).toList();
 
       return list;
+    } catch (error, stackTrace) {
+      Error.throwWithStackTrace(
+        SupabaseRecipeInformationFailure(error),
+        stackTrace,
+      );
+    }
+  }
+
+  /// Method to get the recipe information by mealtype
+  Future<SupabaseRecipe?> getRecipe(RecipeParams params) async {
+    try {
+      final recipeColumns =
+          TableRecipe.values.map((e) => e.value).toList().join(',');
+      final ingredientQtyColumns =
+          TableIngredientQuantity.values.map((e) => e.value).toList().join(',');
+      final ingredientQtyTable = TableIngredientQuantity.tableName;
+      final response = await _supabaseClient
+          .from(TableRecipe.tableName)
+          .select<Map<String, dynamic>?>(
+            '$recipeColumns,$ingredientQtyTable($ingredientQtyColumns)',
+          )
+          .eq(
+            TableRecipe.code.value,
+            params.recipeCode,
+          )
+          .maybeSingle();
+      if (response == null) {
+        return null;
+      }
+      return SupabaseRecipe.fromJson(response);
     } catch (error, stackTrace) {
       Error.throwWithStackTrace(
         SupabaseRecipeInformationFailure(error),

@@ -4,8 +4,8 @@ import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 
 ///Create a "Comprar" button to finish the purchase
-class CartButton extends StatelessWidget {
-  const CartButton({required this.enabled, super.key});
+class ShoppingListButton extends StatelessWidget {
+  const ShoppingListButton({required this.enabled, super.key});
   final bool enabled;
   @override
   Widget build(BuildContext context) {

@@ -11,6 +11,7 @@ class HiveService {
       ..registerAdapter(RecipeAdapter())
       ..registerAdapter(IngredientAdapter())
       ..registerAdapter(SettingsItemAdapter())
-      ..registerAdapter(LanguageAdapter());
+      ..registerAdapter(LanguageAdapter())
+      ..registerAdapter(MealTypeAdapter());
   }
 }

@@ -3,12 +3,21 @@ import 'dart:developer';
 import 'package:challenge_bloc/common/utils.dart';
 import 'package:challenge_bloc/l10n/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 
+part 'meal_type.g.dart';
+
+@HiveType(typeId: 6)
 enum MealType {
+  @HiveField(0)
   breakfast,
+  @HiveField(1)
   morningSnack,
+  @HiveField(2)
   lunch,
+  @HiveField(3)
   snack,
+  @HiveField(4)
   dinner;
 
   String toStringValue(AppLocalizations l10n) {

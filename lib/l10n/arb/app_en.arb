@@ -41,6 +41,7 @@
     "today": "Today",
     "cancel": "Cancel",
     "done": "Done",
+    "shareRecipeSubject": "Check this recipe",
     "@portions": {
         "description": "Number of portions of a recipe",
         "placeholders": {

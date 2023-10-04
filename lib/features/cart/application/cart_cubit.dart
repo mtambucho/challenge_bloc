@@ -75,4 +75,8 @@ class CartCubit extends Cubit<CartState> {
     ///update state
     emit(CartState(items: items));
   }
+
+  bool isFavorite(Recipe recipe) {
+    return state.items.any((element) => element.recipe.name == recipe.name);
+  }
 }

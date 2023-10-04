@@ -27,10 +27,13 @@ class RecipesRepositoryImpl implements RecipesRepository {
   ///function to get all recipes from jsons
   @override
   Future<List<Recipe>> getRecipes(RecipesParams params) async {
+    ///check if recipes are already loaded
     final loaded = recipesLoaded[params.type] ?? false;
     if (loaded) {
+      ///if recipes are loaded return from local storage
       return _getRecipesFromLocalStorage(params);
     } else {
+      ////if recipes are not loaded return from supabase
       final list = await _getRecipesFromSupabase(params);
       await recipeService.saveRecipes(params.type, list);
       recipesLoaded[params.type] = true;
@@ -56,6 +59,13 @@ class RecipesRepositoryImpl implements RecipesRepository {
       return [];
     }
   }
+
+  ///function to get all recipes from jsons
+  @override
+  Future<Recipe?> getRecipe(RecipeParams params) async {
+    final recipe = await databaseClient.getRecipe(params);
+    return recipe?.toRecipe(params.language);
+  }
 }
 
 extension SupabaseRecipeHelper on SupabaseRecipe {
@@ -68,6 +78,7 @@ extension SupabaseRecipeHelper on SupabaseRecipe {
       receta: recipe[language.code],
       name: name[language.code] ?? '',
       rendimiento: quantity,
+      mealType: MealType.fromJson(mealType),
     );
   }
 }

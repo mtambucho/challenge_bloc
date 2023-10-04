@@ -60,6 +60,7 @@ class RecipeService {
         description: recipe.description,
         ingredients: recipe.ingredients,
         rendimiento: recipe.rendimiento,
+        mealType: recipe.mealType,
       ),
     );
   }

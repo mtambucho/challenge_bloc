@@ -27,6 +27,14 @@ class FavCubit extends Cubit<FavState> {
         null;
   }
 
+  void addOrRemoveFavorite(Recipe recipe) {
+    if (isFavorite(recipe)) {
+      removeFavorite(recipe);
+    } else {
+      addFavorite(recipe);
+    }
+  }
+
   void addFavorite(Recipe recipe) {
     repository.saveFavorite(recipe);
     emit(state.copyWith(favorites: repository.getFavorites()));

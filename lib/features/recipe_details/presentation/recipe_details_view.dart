@@ -1,74 +1,76 @@
 import 'package:challenge_bloc/common/utils.dart';
+import 'package:challenge_bloc/common/widgets/cart_button.dart';
+import 'package:challenge_bloc/common/widgets/share_widget.dart';
 import 'package:challenge_bloc/features/appbar/appbar.dart';
+import 'package:challenge_bloc/features/cart/application/cart_cubit.dart';
+import 'package:challenge_bloc/features/fav/fav.dart';
+import 'package:challenge_bloc/features/recipe_details/presentation/recipe_details_item.dart';
+import 'package:challenge_bloc/features/recipe_details/presentation/recipe_details_loading_item.dart';
 import 'package:challenge_bloc/features/recipe_details/recipe_details.dart';
-import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-///create a widget to show the details of a recepy
-/// `name` `type` `week` `description` `ingredients`
-
 class RecipeDetailsView extends StatelessWidget {
-  const RecipeDetailsView({
-    required this.recipe,
-    required this.mealType,
-    super.key,
-  });
-  final Recipe recipe;
-  final MealType mealType;
+  const RecipeDetailsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.lightGrey,
-      appBar: const CustomAppBar(),
-      body: SingleChildScrollView(
-        child: BlocBuilder<RecipeDetailsCubit, RecipeDetailsState>(
-          builder: (context, state) {
-            return Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  color: Colors.white,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        mealType.toStringValue(context.l10n).toUpperCase(),
-                        style: RecipeDetailsStyles.mealTypeStyle,
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        recipe.name,
-                        style: RecipeDetailsStyles.titleStyle,
-                      ),
-                      RecipeDetailsIcons(
-                        portions: state.recipesAmount,
-                        onChange:
-                            context.read<RecipeDetailsCubit>().changeAmount,
-                      ),
-                    ],
-                  ),
+    return BlocBuilder<RecipeDetailsCubit, RecipeDetailsState>(
+      builder: (context, state) {
+        late final Widget child;
+        if (state.isLoading) {
+          child = const RecipeDetailsLoadingItem();
+        } else {
+          final mealType = state.mealType!;
+          final recipe = state.recipe!;
+          child = RecipeDetailItem(
+            mealType: mealType,
+            recipe: recipe,
+            recipesAmount: state.recipesAmount,
+          );
+        }
+        return Scaffold(
+          backgroundColor: AppColors.lightGrey,
+          appBar: CustomAppBar(
+            showCart: false,
+            actions: [
+              if (!state.isLoading) ...[
+                ShareWidget(
+                  createShareLink: () => context
+                      .read<RecipeDetailsCubit>()
+                      .createShareLink(context.l10n),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    children: [
-                      IngredientsWidget(
-                        recipe: recipe,
-                        people: state.recipesAmount,
-                      ),
-                      if (recipe.receta != null &&
-                          (recipe.receta?.isNotEmpty ?? false))
-                        RecepyDetailsRecipe(recipe: recipe),
-                    ],
-                  ),
+                BlocBuilder<FavCubit, FavState>(
+                  builder: (context, favState) {
+                    return FavRecipeWidget(
+                      isFavorite: context.read<FavCubit>().isFavorite(
+                            state.recipe!,
+                          ),
+                      onPressed: () => context
+                          .read<FavCubit>()
+                          .addOrRemoveFavorite(state.recipe!),
+                    );
+                  },
+                ),
+                BlocBuilder<CartCubit, CartState>(
+                  builder: (context, cartState) {
+                    return CartButton(
+                      inCart:
+                          context.read<CartCubit>().isFavorite(state.recipe!),
+                      onTap: () => context
+                          .read<CartCubit>()
+                          .addOrRemoveItem(state.recipe!),
+                    );
+                  },
                 ),
               ],
-            );
-          },
-        ),
-      ),
+            ],
+          ),
+          body: SingleChildScrollView(
+            child: child,
+          ),
+        );
+      },
     );
   }
 }

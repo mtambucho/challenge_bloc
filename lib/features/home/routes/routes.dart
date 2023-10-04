@@ -4,7 +4,7 @@ import 'package:challenge_bloc/features/recipes/recipes.dart';
 import 'package:challenge_bloc/features/settings/settings.dart';
 import 'package:flutter/material.dart';
 
-List<Page<dynamic>> onGenerateNavBarPages(
+List<Page<dynamic>> onGenerateHomePages(
   HomeState state,
   List<Page<dynamic>> pages,
 ) {
@@ -13,8 +13,9 @@ List<Page<dynamic>> onGenerateNavBarPages(
         RecipesPage.page(),
         if (state.showDetails)
           RecipeDetailsPage.page(
-            state.selectedRecipe!,
-            state.selectedMealType!,
+            state.selectedRecipe,
+            state.selectedMealType,
+            state.redirect,
           ),
       ],
     // HomeStatus.excercise => [ExcercisePage.page()],

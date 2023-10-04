@@ -28,7 +28,7 @@ class HomeView extends StatelessWidget {
             context.read<HomeCubit>().goToPage(index),
       ),
       body: FlowBuilder<HomeState>(
-        onGeneratePages: onGenerateNavBarPages,
+        onGeneratePages: onGenerateHomePages,
         state: context.select((HomeCubit cubit) => cubit.state),
       ),
     );
