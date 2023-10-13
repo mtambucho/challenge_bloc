@@ -10,7 +10,7 @@ class CartButton extends StatelessWidget {
     return IconButton(
       icon: Icon(
         inCart ? Icons.shopping_cart : Icons.shopping_cart_outlined,
-        color: inCart ? AppColors.primary : Colors.grey.shade700,
+        color: inCart ? AppColors.primary : AppColors.disabledIcon,
       ),
       padding: const EdgeInsets.symmetric(vertical: 16),
       onPressed: onTap,

@@ -1,11 +1,11 @@
 import 'package:challenge_bloc/common/services/dynamic_link/dynamic_link.dart';
+import 'package:challenge_bloc/common/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:share_plus/share_plus.dart';
 
-///create share widget
-class ShareWidget extends StatelessWidget {
-  const ShareWidget({
+class ShareButton extends StatelessWidget {
+  const ShareButton({
     required this.createShareLink,
     super.key,
   });
@@ -27,7 +27,8 @@ class ShareWidget extends StatelessWidget {
         );
       },
       icon: const Icon(
-        Icons.share,
+        Icons.share_outlined,
+        color: AppColors.disabledIcon,
       ),
     );
   }

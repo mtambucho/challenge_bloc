@@ -25,6 +25,7 @@ class AppColors {
   static const lightGrey = Color(0xFFF5F5F5);
   static const white = Color(0xFFFFFFFF);
   static const scaffold = Color(0xFFFFFFFF);
+  static const disabledIcon = Color(0xFF424242);
 
   static const MaterialColor primary = MaterialColor(
     _primaryColor,

@@ -35,7 +35,7 @@ class RecipeDetailsView extends StatelessWidget {
             showCart: false,
             actions: [
               if (!state.isLoading) ...[
-                ShareWidget(
+                ShareButton(
                   createShareLink: () => context
                       .read<RecipeDetailsCubit>()
                       .createShareLink(context.l10n),

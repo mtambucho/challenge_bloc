@@ -1,4 +1,4 @@
-package com.mtambucho.challenge_bloc
+package com.mtambucho.challenge
 
 import io.flutter.embedding.android.FlutterActivity
 

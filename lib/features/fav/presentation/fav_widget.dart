@@ -15,7 +15,10 @@ class FavRecipeWidget extends StatelessWidget {
               Icons.star,
               color: AppColors.golden,
             )
-          : const Icon(Icons.star_border),
+          : const Icon(
+              Icons.star_border,
+              color: AppColors.disabledIcon,
+            ),
     );
   }
 }

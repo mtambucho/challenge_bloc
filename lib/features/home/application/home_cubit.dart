@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:challenge_bloc/common/services/dynamic_link/dynamic_link.dart';
 import 'package:challenge_bloc/features/home/application/home_status.dart';
 import 'package:challenge_bloc/features/recipes/recipes.dart';
@@ -11,6 +13,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   void redirectToDetails(DeepLinkRedirect redirect) {
     final query = redirect.params;
+    log('redirectToDetails ==>> $query');
     if (query.containsKey('recipeCode')) {
       emit(
         HomeState(

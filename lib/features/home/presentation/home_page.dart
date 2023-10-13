@@ -19,16 +19,21 @@ class HomePage extends StatelessWidget {
               DeepLinkCubit(context.read<FirebaseDeepLinkRepository>()),
         ),
       ],
-      child: BlocListener<DeepLinkCubit, DeepLinkState>(
+      child: BlocConsumer<DeepLinkCubit, DeepLinkState>(
         listener: (context, state) {
           if (state is LinkPending) {
             final redirect = state.link;
             if (redirect.event == DeepLinkRedirectEvent.recipeDetails) {
               context.read<HomeCubit>().redirectToDetails(redirect);
+              context.read<DeepLinkCubit>().consumeDeepLink();
             }
           }
         },
-        child: const HomeView(),
+        buildWhen: (previous, current) =>
+            previous is LinkPending && current is Ready,
+        builder: (BuildContext context, DeepLinkState state) {
+          return const HomeView();
+        },
       ),
     );
   }

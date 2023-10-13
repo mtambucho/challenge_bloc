@@ -61,6 +61,11 @@ class FirebaseDeepLinkRepository {
         packageName: AppConstants.packageName,
         minimumVersion: 0,
       ),
+      iosParameters: IOSParameters(
+        bundleId: AppConstants.bundleId,
+        appStoreId: AppConstants.appStoreId,
+        minimumVersion: '0',
+      ),
     );
 
     late final Uri url;

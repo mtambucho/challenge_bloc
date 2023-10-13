@@ -36,6 +36,8 @@ class DeepLinkCubit extends Cubit<DeepLinkState> {
         ),
       );
     } catch (e) {
+      log('Error: ==>> $e');
+
       log(e.toString(), error: e);
       emit(const Ready());
     }

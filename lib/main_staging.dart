@@ -1,11 +1,10 @@
 import 'package:challenge_bloc/app/app.dart';
 import 'package:challenge_bloc/bootstrap.dart';
-import 'package:challenge_bloc/common/database/supabase/supabase_database_client.dart';
-import 'package:challenge_bloc/common/services/cart_service.dart';
-import 'package:challenge_bloc/common/services/hive_service.dart';
-import 'package:challenge_bloc/common/services/recipe_service.dart';
-import 'package:challenge_bloc/common/services/settings_service.dart';
+import 'package:challenge_bloc/common/database.dart';
+import 'package:challenge_bloc/common/enums/environment.dart';
+import 'package:challenge_bloc/common/services.dart';
 import 'package:challenge_bloc/features/authentication/authentication.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -13,9 +12,12 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
+  const env = Environment.staging;
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  await dotenv.load(fileName: 'assets/.env');
+  await dotenv.load(fileName: env.fileName);
   await Hive.initFlutter();
 
   await Supabase.initialize(
