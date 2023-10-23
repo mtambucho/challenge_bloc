@@ -69,6 +69,7 @@ class App extends StatelessWidget {
           fistDayOfChallenge: settings.firstDay,
         ),
         settingsRepository: SettingsRepositoryImpl(settingsService),
+        recipesRepository: recipesRepository,
       ),
     );
   }

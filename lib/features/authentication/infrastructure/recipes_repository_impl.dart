@@ -66,6 +66,14 @@ class RecipesRepositoryImpl implements RecipesRepository {
     final recipe = await databaseClient.getRecipe(params);
     return recipe?.toRecipe(params.language);
   }
+
+  @override
+  void removeCache() {
+    recipesLoaded.forEach((key, value) {
+      recipesLoaded[key] = false;
+    });
+    recipeService.removeCache();
+  }
 }
 
 extension SupabaseRecipeHelper on SupabaseRecipe {

@@ -8,4 +8,7 @@ abstract class RecipesRepository {
 
   ///function to get a recipes by code
   Future<Recipe?> getRecipe(RecipeParams params);
+
+  ///Remove all recipes from local storage
+  void removeCache();
 }

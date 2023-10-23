@@ -1,7 +1,7 @@
+import 'dart:ui';
+
 import 'package:challenge_bloc/l10n/l10n.dart';
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:intl/intl.dart';
 
 part 'language.g.dart';
 
@@ -44,7 +44,9 @@ enum Language {
   }
 
   static Language getDefaultLanguage() {
-    final localeStr = Intl.getCurrentLocale();
+    final localeStr = PlatformDispatcher.instance.locale.languageCode;
+
+    // final localeStr = Intl.getCurrentLocale();
 
     if (localeStr.length >= 2) {
       return fromCode(localeStr.substring(0, 2));

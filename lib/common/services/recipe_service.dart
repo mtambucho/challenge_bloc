@@ -71,4 +71,12 @@ class RecipeService {
     );
     await itemToRemove.delete();
   }
+
+  void removeCache() {
+    _breakfast.clear();
+    _morningSnack.clear();
+    _lunch.clear();
+    _snack.clear();
+    _dinner.clear();
+  }
 }
