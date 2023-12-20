@@ -29,7 +29,7 @@ dependencies:
   json_annotation: ^4.8.1
   share_plus: ^7.1.0
   shimmer: ^3.0.0
-  supabase_flutter: ^1.6.2
+  supabase_flutter: ^2.0.2
 
 dev_dependencies:
   bloc_test: ^9.1.2
